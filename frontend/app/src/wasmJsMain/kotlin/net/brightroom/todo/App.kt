@@ -16,9 +16,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import kotlinproject.frontend.app.generated.resources.Res
-import kotlinproject.frontend.app.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
+import todo_app.frontend.app.generated.resources.Res
+import todo_app.frontend.app.generated.resources.compose_multiplatform
 
 @Composable
 fun App() {
