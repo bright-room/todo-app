@@ -3,20 +3,21 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.kotlin.mlutiplatform)
+    alias(libs.plugins.compose.multiplatform)
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
-    jvm()
-
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
+        outputModuleName.set("composeApp")
         browser {
             val rootDirPath = project.rootDir.path
             val projectDirPath = project.projectDir.path
             commonWebpackConfig {
+                outputFileName = "composeApp.js"
                 devServer =
                     (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                        port = 3000
                         static =
                             (static ?: mutableListOf()).apply {
                                 // Serve sources to debug inside the browser
@@ -26,22 +27,26 @@ kotlin {
                     }
             }
         }
+        binaries.executable()
     }
 
     sourceSets {
+
         commonMain.dependencies {
-            implementation(libs.kotlinx.datetime)
+            implementation(projects.shared)
+
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material3)
+            implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+
+            implementation(libs.bundles.kotlinx)
+            implementation(libs.bundles.compose.libraries)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
-        }
-
-        wasmJsMain.dependencies {
-            implementation(npm("@js-joda/timezone", "2.3.0"))
-        }
-
-        wasmJsTest.dependencies {
-            //
         }
     }
 }
