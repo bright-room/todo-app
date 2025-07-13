@@ -1,4 +1,35 @@
-rootProject.name = "todo-app"
+@file:Suppress("UnstableApiUsage")
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-include(":frontend")
-include(":backend")
+pluginManagement {
+    repositories {
+        google {
+            mavenContent {
+                includeGroupAndSubgroups("androidx")
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        google {
+            mavenContent {
+                includeGroupAndSubgroups("androidx")
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+            }
+        }
+        mavenCentral()
+    }
+}
+
+rootProject.name = "KotlinProject"
+
+include(":composeApp")
+include(":server")
+include(":shared")
