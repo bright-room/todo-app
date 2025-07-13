@@ -1,25 +1,176 @@
 [versions]
-androidx-lifecycle = "2.9.1"
-composeMultiplatform = "1.8.2"
-junit = "4.13.2"
-kotlin = "2.2.0"
-ktor = "3.2.1"
-logback = "1.5.18"
-
-[libraries]
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
-junit = { module = "junit:junit", version.ref = "junit" }
-androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
-androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
-logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
-ktor-serverCore = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
-ktor-serverNetty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
-ktor-serverTestHost = { module = "io.ktor:ktor-server-test-host-jvm", version.ref = "ktor" }
+kotlin_version = { strictly = "2.2.0" }
+ktor_version = { strictly = "3.2.1" }
+compose_multiplatform_version = { strictly = "1.8.2" }
+exposed_version = { strictly = "1.0.0-beta-2" }
+koin_version = { strictly = "4.1.0" }
+androidx_lifecycle_version = { strictly = "2.9.1" }
 
 [plugins]
-composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
-composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
-kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+#############################################
+# kotlin
+#############################################
+kotlin-mlutiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin_version" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin_version" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin_version" }
+
+compose_multiplatform = { id = "org.jetbrains.compose", version.ref = "compose_multiplatform_version" }
+compose_compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin_version" }
+
+#############################################
+# ktor
+#############################################
+ktor = { id = "io.ktor.plugin", version.ref = "ktor_version" }
+
+#############################################
+# linter
+#############################################
+spotless = { id = "com.diffplug.spotless", version = { strictly = "7.0.4" } }
+
+[libraries]
+#############################################
+# kotlin libraries
+#############################################
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = { strictly = "1.8.1" } }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = { strictly = "0.7.1" } }
+
+#############################################
+# kotlin test libraries
+#############################################
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin_version" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin_version" }
+
+#############################################
+# ktor libraries
+#############################################
+# common
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json" }
+
+# server
+ktor-server-core = { module = "io.ktor:ktor-server-core" }
+ktor-server-cio = { module = "io.ktor:ktor-server-cio" }
+ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml" }
+ktor-server-di = { module = "io.ktor:ktor-server-di" }
+ktor-server-resources = { module = "io.ktor:ktor-server-resources" }
+ktor-server-request-validation = { module = "io.ktor:ktor-server-request-validation" }
+ktor-server-status-pages = { module = "io.ktor:ktor-server-status-pages" }
+ktor-server-double-receive = { module = "io.ktor:ktor-server-double-receive" }
+ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging" }
+ktor-server-call-id = { module = "io.ktor:ktor-server-call-id" }
+ktor-server-metrics-micrometer = { module = "io.ktor:ktor-server-metrics-micrometer" }
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation" }
+
+ktor-server-health = { module = "dev.hayden:khealth", version = { strictly = "3.0.2" } }
+ktor-openapi = { module = "io.github.smiley4:ktor-openapi", version = { strictly = "5.1.0" } }
+ktor-swagger-ui = { module = "io.github.smiley4:ktor-swagger-ui", version = { strictly = "5.1.0" } }
+ktor-redoc = { module = "io.github.smiley4:ktor-redoc", version = { strictly = "5.1.0" } }
+
+ktor-server-task-scheduling-core = { module = "io.github.flaxoos:ktor-server-task-scheduling-core", version = "2.2.1" }
+ktor-server-task-scheduling-jdbc = { module = "io.github.flaxoos:ktor-server-task-scheduling-jdbc", version = "2.2.1" }
+
+# client
+
+#############################################
+# ktor test libraries
+#############################################
+# common
+
+# server
+ktor-server-test-host = { module = "io.ktor:ktor-server-test-host" }
+
+# client
+
+#############################################
+# exposed libraries
+#############################################
+exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed_version" }
+exposed-r2dbc = { module = "org.jetbrains.exposed:exposed-r2dbc", version.ref = "exposed_version" }
+exposed-kotlin-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime", version.ref = "exposed_version" }
+
+#############################################
+# r2dbc libraries
+#############################################
+r2dbc-postgresql = { module = "org.postgresql:r2dbc-postgresql", version = { strictly = "1.0.7.RELEASE" } }
+r2dbc-pool = { module = "io.r2dbc:r2dbc-pool", version = { strictly = "1.0.2.RELEASE" } }
+
+#############################################
+# koin libraries
+#############################################
+koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin_version" }
+koin-logger-slf4j = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin_version" }
+
+#############################################
+# logging libraries
+#############################################
+logback = { module = "ch.qos.logback:logback-classic", version = { strictly = "1.5.18" } }
+slf4j-nop = { module = "org.slf4j:slf4j-nop", version = { strictly = "1.7.30" } }
+
+#############################################
+# other libraries
+#############################################
+micrometer-registry-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = { strictly = "1.15.1" } }
+yavi = { module = "am.ik.yavi:yavi", version = { strictly = "0.16.0" } }
+password4j = { module = "com.password4j:password4j", version = { strictly = "1.8.4" } }
+
+#############################################
+# androidx-lifecycle libraries
+#############################################
+androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx_lifecycle_version" }
+androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx_lifecycle_version" }
+
+[bundles]
+kotlinx = [
+    "kotlinx-serialization-json",
+    "kotlinx-datetime"
+]
+
+ktor-common = [
+    "ktor-serialization-kotlinx-json"
+]
+
+ktor-server = [
+    "ktor-server-core",
+    "ktor-server-cio",
+    "ktor-server-config-yaml",
+    "ktor-server-di",
+    "ktor-server-resources",
+    "ktor-server-request-validation",
+    "ktor-server-status-pages",
+    "ktor-server-double-receive",
+    "ktor-server-call-logging",
+    "ktor-server-call-id",
+    "ktor-server-metrics-micrometer",
+    "ktor-server-content-negotiation",
+
+    "ktor-server-health",
+    "ktor-openapi",
+    "ktor-swagger-ui",
+    "ktor-redoc",
+
+    "exposed-core",
+    "exposed-r2dbc",
+    "r2dbc-postgresql",
+    "r2dbc-pool",
+    "exposed-kotlin-datetime",
+
+    "koin-ktor",
+    "koin-logger-slf4j",
+
+    "logback",
+    "slf4j-nop",
+
+    "micrometer-registry-prometheus",
+    "yavi",
+    "password4j"
+]
+
+ktor-server-test = [
+    "kotlin-test",
+    "kotlin-test-junit",
+    "ktor-server-test-host"
+]
+
+compose-libraries = [
+    "androidx-lifecycle-viewmodel",
+    "androidx-lifecycle-runtimeCompose"
+]

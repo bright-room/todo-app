@@ -1,4 +1,5 @@
 @file:Suppress("UnstableApiUsage")
+
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -25,11 +26,20 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        maven(url = "https://jitpack.io")
     }
+}
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
 rootProject.name = "KotlinProject"
 
-include(":composeApp")
 include(":server")
+
+include(":frontend:app")
+include(":backend:core")
+include(":backend:api")
+include(":backend:scheduler")
 include(":shared")
