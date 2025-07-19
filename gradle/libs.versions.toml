@@ -108,7 +108,7 @@ slf4j-nop = { module = "org.slf4j:slf4j-nop", version = { strictly = "1.7.30" } 
 #############################################
 # other libraries
 #############################################
-micrometer-registry-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = { strictly = "1.15.1" } }
+micrometer-registry-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = { strictly = "1.15.2" } }
 yavi = { module = "am.ik.yavi:yavi", version = { strictly = "0.16.0" } }
 password4j = { module = "com.password4j:password4j", version = { strictly = "1.8.4" } }
 
