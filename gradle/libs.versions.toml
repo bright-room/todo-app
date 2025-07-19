@@ -103,7 +103,7 @@ koin-logger-slf4j = { module = "io.insert-koin:koin-logger-slf4j", version.ref =
 # logging libraries
 #############################################
 logback = { module = "ch.qos.logback:logback-classic", version = { strictly = "1.5.18" } }
-slf4j-nop = { module = "org.slf4j:slf4j-nop", version = { strictly = "1.7.36" } }
+slf4j-nop = { module = "org.slf4j:slf4j-nop", version = { strictly = "2.0.17" } }
 
 #############################################
 # other libraries
