@@ -4,13 +4,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     repositories {
-        google {
-            mavenContent {
-                includeGroupAndSubgroups("androidx")
-                includeGroupAndSubgroups("com.android")
-                includeGroupAndSubgroups("com.google")
-            }
-        }
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -18,13 +12,7 @@ pluginManagement {
 
 dependencyResolutionManagement {
     repositories {
-        google {
-            mavenContent {
-                includeGroupAndSubgroups("androidx")
-                includeGroupAndSubgroups("com.android")
-                includeGroupAndSubgroups("com.google")
-            }
-        }
+        google()
         mavenCentral()
         maven(url = "https://jitpack.io")
     }
@@ -35,11 +23,3 @@ plugins {
 }
 
 rootProject.name = "todo-app"
-
-include(":server")
-
-include(":frontend:app")
-include(":backend:core")
-include(":backend:api")
-include(":backend:scheduler")
-include(":shared")

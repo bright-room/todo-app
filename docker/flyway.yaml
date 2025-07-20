@@ -1,8 +1,0 @@
----
-services:
-  flyway:
-    image: "flyway/flyway:latest"
-    volumes:
-    - "./flyway:/flyway/conf"
-    - "./flyway/migration:/flyway/sql"
-    command: "migrate"
