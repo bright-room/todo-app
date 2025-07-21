@@ -23,3 +23,7 @@ plugins {
 }
 
 rootProject.name = "todo-app"
+
+include(":backend:api")
+include(":frontend:app")
+include(":shared")
