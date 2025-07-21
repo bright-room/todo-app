@@ -1,4 +1,3 @@
-# Backend Dockerfile for Bright Room Todo API
 FROM openjdk:21-jdk-slim-buster as builder
 
 # 作業ディレクトリの設定
