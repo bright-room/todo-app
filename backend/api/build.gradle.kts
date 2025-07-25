@@ -9,7 +9,7 @@ group = "net.brightroom"
 version = "1.0.0"
 
 application {
-    mainClass.set("net.brightroom.todo.backend.api.ApplicationKt")
+    mainClass.set("net.brightroom.todo.MainKt")
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")

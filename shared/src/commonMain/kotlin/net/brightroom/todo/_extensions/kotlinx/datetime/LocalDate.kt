@@ -1,0 +1,7 @@
+package net.brightroom.todo._extensions.kotlinx.datetime
+
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.TimeZone
+
+fun LocalDate.Companion.now(timeZone: TimeZone = TimeZone.JST) = LocalDateTime.now(timeZone).date

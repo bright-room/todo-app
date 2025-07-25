@@ -6,7 +6,7 @@ set search_path to todo_app;
 -- タスクテーブル
 create table tasks (
     id uuid primary key default gen_random_uuid(),
-    title varchar(200) not null, -- タスクタイトル
+    title varchar(100) not null, -- タスクタイトル
     description text not null default '', -- タスク説明
     created_at timestamp not null default current_timestamp -- 作成日時
 );

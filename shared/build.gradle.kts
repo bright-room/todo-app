@@ -37,9 +37,7 @@ kotlin {
             implementation(libs.kotlin.test)
         }
 
-        jvmMain.dependencies {
-            implementation(libs.yavi)
-        }
+        jvmMain.dependencies {}
 
         jvmTest.dependencies {
             implementation(libs.kotlin.test.junit)
@@ -49,8 +47,6 @@ kotlin {
             implementation(npm("@js-joda/timezone", "2.3.0"))
         }
 
-        wasmJsTest.dependencies {
-            //
-        }
+        wasmJsTest.dependencies {}
     }
 }

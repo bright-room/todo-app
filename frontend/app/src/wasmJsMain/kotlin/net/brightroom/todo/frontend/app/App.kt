@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -29,12 +28,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import net.brightroom.todo.shared.domain.model.Description
-import net.brightroom.todo.shared.domain.model.DueDate
-import net.brightroom.todo.shared.domain.model.Task
-import net.brightroom.todo.shared.domain.model.TaskId
-import net.brightroom.todo.shared.domain.model.Tasks
-import net.brightroom.todo.shared.domain.model.Title
+import net.brightroom.todo.domain.model.task.Description
+import net.brightroom.todo.domain.model.task.duedate.SetDueDate
+import net.brightroom.todo.domain.model.task.Task
+import net.brightroom.todo.domain.model.task.TaskId
+import net.brightroom.todo.domain.model.task.Tasks
+import net.brightroom.todo.domain.model.task.Title
 import org.jetbrains.compose.resources.Font
 import todo_app.frontend.app.generated.resources.NotoSansJP_Regular
 import todo_app.frontend.app.generated.resources.Res
@@ -89,7 +88,7 @@ fun App() {
                                 id = TaskId.generate(),
                                 title = Title("サンプルタスク"),
                                 description = Description("これはサンプルタスクです"),
-                                dueDate = DueDate.parse("2024-12-31"),
+                                dueDate = SetDueDate.parse("2024-12-31"),
                                 isCompleted = false,
                             )
                         tasks = Tasks(tasks.list + sampleTask)
@@ -126,7 +125,7 @@ fun App() {
                             id = TaskId.generate(),
                             title = Title(title),
                             description = Description(description),
-                            dueDate = DueDate.parse(dueDate),
+                            dueDate = SetDueDate.parse(dueDate),
                             isCompleted = false,
                         )
                     tasks = Tasks(tasks.list + newTask)
