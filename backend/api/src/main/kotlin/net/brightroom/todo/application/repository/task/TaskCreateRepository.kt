@@ -1,7 +1,7 @@
 package net.brightroom.todo.application.repository.task
 
-import net.brightroom.todo.domain.model.task.content.Content
+import net.brightroom.todo.domain.model.task.TaskId
 
 interface TaskCreateRepository {
-    fun create(content: Content)
+    suspend fun create(): TaskId
 }

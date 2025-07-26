@@ -4,7 +4,7 @@ set search_path to todo_app;
 
 -- タスクを一意に表す識別子
 create table task_id (
-    id uuid primary key default gen_random_uuid(),
+    id uuid not null primary key default gen_random_uuid(),
     created_at timestamp not null default current_timestamp
 );
 create index idx_task_identity_created_at on task_id(created_at);
@@ -15,7 +15,7 @@ comment on column task_id.created_at is '作成日時';
 
 -- タスク内容
 create table task_content (
-    id uuid primary key default gen_random_uuid(),
+    id serial not null primary key,
     task_id uuid not null references task_id(id),
     title varchar(200) not null,
     description text not null default '',
@@ -33,7 +33,7 @@ comment on column task_content.created_at is '作成日時';
 -- タスクステータス
 create type task_status_type as enum ('未完了', '完了');
 create table task_status (
-    id uuid primary key default gen_random_uuid(),
+    id serial not null primary key,
     task_id uuid not null references task_id(id),
     status task_status_type not null,
     created_at timestamp not null default current_timestamp
@@ -48,7 +48,7 @@ comment on column task_status.created_at is '作成日時';
 
 -- タスク完了日時
 create table task_complete_time (
-    id uuid primary key default gen_random_uuid(),
+    id serial not null primary key,
     task_id uuid not null references task_id(id),
     completed_at timestamp not null default current_timestamp
 );
