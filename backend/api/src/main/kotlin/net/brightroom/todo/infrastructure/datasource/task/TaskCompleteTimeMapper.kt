@@ -8,7 +8,10 @@ import kotlin.uuid.ExperimentalUuidApi
 
 @OptIn(ExperimentalUuidApi::class)
 object TaskCompleteTimeMapper {
-    suspend fun register(completedTime: CompletedTime, id: TaskId) {
+    suspend fun register(
+        completedTime: CompletedTime,
+        id: TaskId,
+    ) {
         TaskCompleteTimeTable.insert {
             it[taskId] = id()
             it[completedAt] = completedTime()

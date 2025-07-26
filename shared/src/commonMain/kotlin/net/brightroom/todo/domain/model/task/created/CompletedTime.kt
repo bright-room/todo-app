@@ -10,6 +10,7 @@ interface CompletedTime {
 
     companion object {
         fun now(): CompletedTime = SetCompletedTime()
+
         fun create(value: LocalDateTime?): CompletedTime = value?.let(::SetCompletedTime) ?: NoSetCompletedTime()
     }
 }
