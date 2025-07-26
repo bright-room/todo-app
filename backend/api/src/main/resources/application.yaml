@@ -7,7 +7,7 @@ ktor:
     - "net.brightroom.todo._configuration.di.DependenciesConfigurationKt.configure"
     - "net.brightroom.todo._configuration.ApiConfigurationKt.configure"
   deployment:
-    port: 8080
+    port: 8081
 external:
   datasource:
     host: "localhost"
