@@ -7,6 +7,6 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class Content(
-    private val title: Title,
-    private val description: Description,
+    val title: Title,
+    val description: Description,
 )

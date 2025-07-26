@@ -38,12 +38,18 @@ kotlin {
             implementation(libs.kotlin.test)
         }
 
+        jvmMain.dependencies {
+            implementation(libs.exposed.core)
+            implementation(libs.exposed.r2dbc)
+            implementation(libs.exposed.kotlin.datetime)
+        }
+
+        jvmTest.dependencies {}
+
         wasmJsMain.dependencies {
             implementation(npm("@js-joda/timezone", "2.3.0"))
         }
 
-        wasmJsTest.dependencies {
-            //
-        }
+        wasmJsTest.dependencies {}
     }
 }
