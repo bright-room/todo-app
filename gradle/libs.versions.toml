@@ -3,7 +3,6 @@ kotlin_version = { strictly = "2.2.0" }
 ktor_version = { strictly = "3.2.2" }
 compose_multiplatform_version = { strictly = "1.8.2" }
 exposed_version = { strictly = "1.0.0-beta-4" }
-koin_version = { strictly = "4.1.0" }
 androidx_lifecycle_version = { strictly = "2.9.1" }
 
 [plugins]
@@ -52,21 +51,16 @@ ktor-server-cio = { module = "io.ktor:ktor-server-cio" }
 ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml" }
 ktor-server-di = { module = "io.ktor:ktor-server-di" }
 ktor-server-resources = { module = "io.ktor:ktor-server-resources" }
-ktor-server-request-validation = { module = "io.ktor:ktor-server-request-validation" }
 ktor-server-status-pages = { module = "io.ktor:ktor-server-status-pages" }
 ktor-server-double-receive = { module = "io.ktor:ktor-server-double-receive" }
 ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging" }
 ktor-server-call-id = { module = "io.ktor:ktor-server-call-id" }
-ktor-server-metrics-micrometer = { module = "io.ktor:ktor-server-metrics-micrometer" }
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation" }
 
 ktor-server-health = { module = "dev.hayden:khealth", version = { strictly = "3.0.2" } }
 ktor-openapi = { module = "io.github.smiley4:ktor-openapi", version = { strictly = "5.1.0" } }
 ktor-swagger-ui = { module = "io.github.smiley4:ktor-swagger-ui", version = { strictly = "5.1.0" } }
 ktor-redoc = { module = "io.github.smiley4:ktor-redoc", version = { strictly = "5.1.0" } }
-
-ktor-server-task-scheduling-core = { module = "io.github.flaxoos:ktor-server-task-scheduling-core", version = "2.2.1" }
-ktor-server-task-scheduling-jdbc = { module = "io.github.flaxoos:ktor-server-task-scheduling-jdbc", version = "2.2.1" }
 
 # client
 
@@ -94,23 +88,10 @@ r2dbc-postgresql = { module = "org.postgresql:r2dbc-postgresql", version = { str
 r2dbc-pool = { module = "io.r2dbc:r2dbc-pool", version = { strictly = "1.0.2.RELEASE" } }
 
 #############################################
-# koin libraries
-#############################################
-koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin_version" }
-koin-logger-slf4j = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin_version" }
-
-#############################################
 # logging libraries
 #############################################
 logback = { module = "ch.qos.logback:logback-classic", version = { strictly = "1.5.18" } }
 slf4j-nop = { module = "org.slf4j:slf4j-nop", version = { strictly = "2.0.17" } }
-
-#############################################
-# other libraries
-#############################################
-micrometer-registry-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = { strictly = "1.15.2" } }
-yavi = { module = "am.ik.yavi:yavi", version = { strictly = "0.16.0" } }
-password4j = { module = "com.password4j:password4j", version = { strictly = "1.8.4" } }
 
 #############################################
 # androidx-lifecycle libraries
@@ -134,12 +115,10 @@ ktor-server = [
     "ktor-server-config-yaml",
     "ktor-server-di",
     "ktor-server-resources",
-    "ktor-server-request-validation",
     "ktor-server-status-pages",
     "ktor-server-double-receive",
     "ktor-server-call-logging",
     "ktor-server-call-id",
-    "ktor-server-metrics-micrometer",
     "ktor-server-content-negotiation",
 
     "ktor-server-health",
@@ -153,15 +132,8 @@ ktor-server = [
     "r2dbc-pool",
     "exposed-kotlin-datetime",
 
-    "koin-ktor",
-    "koin-logger-slf4j",
-
     "logback",
-    "slf4j-nop",
-
-    "micrometer-registry-prometheus",
-    "yavi",
-    "password4j"
+    "slf4j-nop"
 ]
 
 ktor-server-test = [
