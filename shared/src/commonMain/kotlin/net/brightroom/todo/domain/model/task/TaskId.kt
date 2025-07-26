@@ -12,7 +12,7 @@ import kotlin.uuid.Uuid
 @JvmInline
 @Serializable
 value class TaskId(
-    val value: Uuid,
+    private val value: Uuid,
 ) {
     constructor() : this(Uuid.random())
     constructor(value: String) : this(Uuid.parse(value))

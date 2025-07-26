@@ -36,10 +36,7 @@ plugins {
 
 rootProject.name = "todo-app"
 
-include(":server")
-
 include(":frontend:app")
-include(":backend:core")
 include(":backend:api")
 include(":backend:scheduler")
 include(":shared")
