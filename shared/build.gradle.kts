@@ -41,6 +41,7 @@ kotlin {
         jvmMain.dependencies {
             implementation(libs.exposed.core)
             implementation(libs.exposed.r2dbc)
+            implementation(libs.r2dbc.postgresql)
             implementation(libs.exposed.kotlin.datetime)
         }
 
