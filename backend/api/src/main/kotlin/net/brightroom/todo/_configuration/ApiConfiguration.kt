@@ -52,10 +52,12 @@ fun Application.configure() {
         val taskCompleteService: TaskCompleteService by dependencies
 
         route("/v1") {
-            taskController(taskService)
-            taskCreateController(taskCreateService, taskContentRegisterService)
-            taskContentModifyController(taskContentRegisterService, taskService)
-            taskCompleteController(taskCompleteService, taskService)
+            route("/task") {
+                taskController(taskService)
+                taskCreateController(taskCreateService, taskContentRegisterService)
+                taskContentModifyController(taskContentRegisterService, taskService)
+                taskCompleteController(taskCompleteService, taskService)
+            }
         }
     }
 }
