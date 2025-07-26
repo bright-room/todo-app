@@ -1,11 +1,13 @@
 package net.brightroom.todo.domain.model.task.created
 
 import kotlinx.datetime.LocalDateTime
+import kotlinx.serialization.Serializable
 
 /**
  * タスク完了日時
  */
-interface CompletedTime {
+@Serializable
+sealed interface CompletedTime {
     operator fun invoke(): LocalDateTime
 
     companion object {

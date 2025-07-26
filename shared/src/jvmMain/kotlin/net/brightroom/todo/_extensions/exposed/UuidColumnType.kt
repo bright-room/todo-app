@@ -4,13 +4,13 @@ import org.jetbrains.exposed.v1.core.ColumnType
 import org.jetbrains.exposed.v1.core.InternalApi
 import org.jetbrains.exposed.v1.core.statements.api.RowApi
 import org.jetbrains.exposed.v1.core.transactions.CoreTransactionManager
-import org.jetbrains.exposed.v1.core.vendors.H2Dialect
 import org.jetbrains.exposed.v1.core.vendors.MariaDBDialect
 import org.jetbrains.exposed.v1.core.vendors.currentDialect
-import java.nio.ByteBuffer
+import java.util.UUID
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 import kotlin.uuid.toJavaUuid
+import kotlin.uuid.toKotlinUuid
 
 @OptIn(ExperimentalUuidApi::class)
 class UuidColumnType : ColumnType<Uuid>() {
@@ -19,16 +19,14 @@ class UuidColumnType : ColumnType<Uuid>() {
     override fun valueFromDB(value: Any): Uuid =
         when {
             value is Uuid -> value
-            value is ByteArray -> ByteBuffer.wrap(value).let { b -> Uuid.fromLongs(b.long, b.long) }
+            value is UUID -> value.toKotlinUuid()
+            value is ByteArray -> Uuid.fromByteArray(value)
             value is String && value.matches(uuidRegexp) -> Uuid.parse(value)
-            value is String -> ByteBuffer.wrap(value.toByteArray()).let { b -> Uuid.fromLongs(b.long, b.long) }
-            value is ByteBuffer -> value.let { b -> Uuid.fromLongs(b.long, b.long) }
+            value is String -> Uuid.fromByteArray(value.toByteArray())
             else -> error("Unexpected value of type Uuid: $value of ${value::class.qualifiedName}")
         }
 
-    override fun notNullValueToDB(value: Uuid): Any =
-        ((currentDialect as? H2Dialect)?.originalDataTypeProvider ?: currentDialect.dataTypeProvider)
-            .uuidToDB(value.toJavaUuid())
+    override fun notNullValueToDB(value: Uuid): Any = currentDialect.dataTypeProvider.uuidToDB(value.toJavaUuid())
 
     override fun nonNullValueToString(value: Uuid): String = "'$value'"
 

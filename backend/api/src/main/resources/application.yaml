@@ -1,0 +1,12 @@
+---
+ktor:
+  application:
+    modules:
+    - "net.brightroom.todo.ApplicationKt.module"
+  deployment:
+    port: 8080
+external:
+  datasource:
+    r2dbc-url: "r2dbc:postgresql://localhost:15432/todo"
+    username: "brapl"
+    password: "brapl"

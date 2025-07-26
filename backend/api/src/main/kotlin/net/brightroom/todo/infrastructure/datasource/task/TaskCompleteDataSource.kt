@@ -20,8 +20,9 @@ class TaskCompleteDataSource(
             TaskCompleteTimeMapper.register(completedTime, id)
         }
 
-    override suspend fun revertCompletion(id: TaskId) {
-        val createdTime = CreatedTime()
-        TaskStatusMapper.register(Status.未完了, id, createdTime)
-    }
+    override suspend fun revertCompletion(id: TaskId) =
+        transaction(db, readOnly = false) {
+            val createdTime = CreatedTime()
+            TaskStatusMapper.register(Status.未完了, id, createdTime)
+        }
 }
