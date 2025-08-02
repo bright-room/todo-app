@@ -2,7 +2,7 @@
 kotlin_version = { strictly = "2.2.0" }
 ktor_version = { strictly = "3.2.2" }
 compose_multiplatform_version = { strictly = "1.8.2" }
-exposed_version = { strictly = "1.0.0-beta-4" }
+exposed_version = { strictly = "1.0.0-beta-5" }
 androidx_lifecycle_version = { strictly = "2.9.1" }
 
 [plugins]
