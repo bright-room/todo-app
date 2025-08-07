@@ -1,0 +1,34 @@
+---
+name: "Gradle cache"
+description: "Gradle cache"
+runs:
+  using: "composite"
+  steps:
+  - id: "weekly-cache"
+    shell: "bash"
+    run: "echo \"key=$(TZ=Asia/Tokyo date +%W)\" >> $GITHUB_OUTPUT"
+  - uses: "actions/cache@v4"
+    with:
+      path: "~/.gradle/wrapper"
+      key: "gradle-wrapper-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties')\
+        \ }}"
+  - uses: "actions/cache@v4"
+    with:
+      path: "~/.gradle/caches/jars-*\n~/.gradle/caches/transforms-*\n~/.gradle/caches/modules-*\n"
+      key: "gradle-dependencies-${{ steps.weekly-cache.outputs.key }}-${{ hashFiles('gradle/libs.versions.toml',\
+        \ '**/*.gradle.kts') }}"
+      restore-keys: "gradle-dependencies-${{ steps.weekly-cache.outputs.key }}-"
+  - uses: "actions/cache@v4"
+    with:
+      path: "~/.kotlin\n~/.gradle/native\n"
+      key: "${{ runner.os }}-kotlin-native-${{ steps.cache-key.outputs.week }}-${{\
+        \ hashFiles('gradle/libs.versions.toml', '**/*.gradle.kts') }}"
+      restore-keys: "${{ runner.os }}-kotlin-native-${{ steps.cache-key.outputs.week\
+        \ }}-"
+  - uses: "actions/cache@v4"
+    with:
+      path: "~/.gradle/caches/build-cache-*\n~/.gradle/caches/[0-9]*.*\n.gradle\n"
+      key: "${{ runner.os }}-gradle-build-${{ github.workflow }}-${{ steps.weekly-cache.outputs.key\
+        \ }}-${{ github.sha }}"
+      restore-keys: "${{ runner.os }}-gradle-build-${{ github.workflow }}-${{ steps.weekly-cache.outputs.key\
+        \ }}-"
