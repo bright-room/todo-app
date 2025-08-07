@@ -1,27 +1,20 @@
 [versions]
 kotlin_version = { strictly = "2.2.0" }
-ktor_version = { strictly = "3.2.3" }
-compose_multiplatform_version = { strictly = "1.8.2" }
-exposed_version = { strictly = "1.0.0-beta-5" }
-androidx_lifecycle_version = { strictly = "2.9.1" }
 
 [plugins]
 #############################################
 # kotlin
 #############################################
 kotlin-mlutiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin_version" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin_version" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin_version" }
-
-compose_multiplatform = { id = "org.jetbrains.compose", version.ref = "compose_multiplatform_version" }
-compose_compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin_version" }
-
-#############################################
-# ktor
-#############################################
-ktor = { id = "io.ktor.plugin", version.ref = "ktor_version" }
 
 #############################################
 # linter
 #############################################
 spotless = { id = "com.diffplug.spotless", version = { strictly = "7.2.1" } }
+
+[libraries]
+#############################################
+# kotlin libraries
+#############################################
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = { strictly = "0.7.1-0.6.x-compat" } }
