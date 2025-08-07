@@ -17,7 +17,6 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google {
             mavenContent {
@@ -41,3 +40,5 @@ plugins {
 }
 
 rootProject.name = "todo-app"
+
+include(":shared")
