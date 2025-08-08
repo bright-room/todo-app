@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalUuidApi::class)
 
-package net.brightroom.schemas
+package net.brightroom.schemas.schema.todo
 
 import net.brightroom.migration.Migratable
 import org.jetbrains.exposed.v1.core.dao.id.IntIdTable

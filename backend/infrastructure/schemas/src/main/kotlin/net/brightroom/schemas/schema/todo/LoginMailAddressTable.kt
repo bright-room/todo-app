@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalUuidApi::class)
 
-package net.brightroom.schemas
+package net.brightroom.schemas.schema.todo
 
 import net.brightroom.migration.Migratable
 import org.jetbrains.exposed.v1.core.dao.id.IntIdTable
@@ -9,8 +9,8 @@ import org.jetbrains.exposed.v1.datetime.datetime
 import kotlin.uuid.ExperimentalUuidApi
 
 @Migratable(order = 1)
-object PasswordTable : IntIdTable("password") {
+object LoginMailAddressTable : IntIdTable("login_mail_address") {
     val account_id = reference("account_id", AccountIdTable)
-    val hash = varchar("hash", 255)
+    val mail_address = varchar("mail_address", 128)
     val createdAt = datetime("created_at").defaultExpression(CurrentDateTime).index()
 }

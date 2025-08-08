@@ -8,6 +8,7 @@ dependencies {
 
     implementation(libs.exposed.core)
     implementation(libs.exposed.kotlin.datetime)
+    implementation(libs.exposed.jdbc)
     implementation(libs.exposed.r2dbc)
 
     testImplementation(libs.kotlin.test)
