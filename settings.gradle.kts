@@ -42,3 +42,5 @@ plugins {
 rootProject.name = "todo-app"
 
 include(":shared")
+
+include(":backend:infrastructure:migration:annotation")
