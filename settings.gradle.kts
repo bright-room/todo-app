@@ -43,4 +43,7 @@ rootProject.name = "todo-app"
 
 include(":shared")
 
+include(":backend:domain")
+
+include(":backend:infrastructure:schemas")
 include(":backend:infrastructure:migration:annotation")
