@@ -3,7 +3,7 @@
 package net.brightroom.schemas.schema.todo
 
 import net.brightroom.migration.Migratable
-import net.brightroom.todo.domain.model.task.Status
+import net.brightroom.todo.domain.model.task.status.Status
 import org.jetbrains.exposed.v1.core.dao.id.IntIdTable
 import org.jetbrains.exposed.v1.datetime.CurrentDateTime
 import org.jetbrains.exposed.v1.datetime.datetime
