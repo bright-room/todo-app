@@ -50,8 +50,8 @@ jdbc-postgresql = { module = "org.postgresql:postgresql", version = { strictly =
 #############################################
 # migration libraries
 #############################################
-flyway = { module = "org.flywaydb:flyway-core", version = { strictly = "10.22.0" } }
-flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version = { strictly = "10.22.0" } }
+flyway = { module = "org.flywaydb:flyway-core", version = { strictly = "11.10.5" } }
+flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version = { strictly = "11.10.5" } }
 
 #############################################
 # kotlin test libraries
