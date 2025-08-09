@@ -1,4 +1,4 @@
-package net.brightroom.schemas
+package net.brightroom.schemas.schema.todo
 
 import net.brightroom.migration.Migratable
 import net.brightroom.schemas._extensions.exposed.KotlinUUIDTable

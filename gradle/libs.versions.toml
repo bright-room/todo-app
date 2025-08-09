@@ -9,6 +9,13 @@ exposed_version = { strictly = "1.0.0-beta-5" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin_version" }
 kotlin-mlutiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin_version" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin_version" }
+kotlin-plugin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin_version" }
+
+#############################################
+# spring boot plugins
+#############################################
+spring-boot = { id = "org.springframework.boot", version = { strictly = "4.0.0-M1" } }
+spring-dependency-management = { id = "io.spring.dependency-management", version = { strictly = "1.1.7" } }
 
 #############################################
 # linter
@@ -22,14 +29,32 @@ spotless = { id = "com.diffplug.spotless", version = { strictly = "7.2.1" } }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = { strictly = "0.7.1-0.6.x-compat" } }
 
 #############################################
+# spring boot libraries
+#############################################
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" }
+
+#############################################
 # exposed libraries
 #############################################
 exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed_version" }
 exposed-kotlin-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime", version.ref = "exposed_version" }
+exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed_version" }
 exposed-r2dbc = { module = "org.jetbrains.exposed:exposed-r2dbc", version.ref = "exposed_version" }
+exposed-migration = { module = "org.jetbrains.exposed:exposed-migration", version.ref = "exposed_version" }
+
+#############################################
+# datasource connector libraries
+#############################################
+jdbc-postgresql = { module = "org.postgresql:postgresql", version = { strictly = "42.7.7" } }
+
+#############################################
+# migration libraries
+#############################################
+flyway = { module = "org.flywaydb:flyway-core", version = { strictly = "10.15.0" } }
+flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version = { strictly = "10.15.0" } }
 
 #############################################
 # kotlin test libraries
 #############################################
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin_version" }
-kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin_version" }
+kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin_version" }
