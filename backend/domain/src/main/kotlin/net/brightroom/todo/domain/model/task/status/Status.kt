@@ -1,4 +1,4 @@
-package net.brightroom.todo.domain.model.task
+package net.brightroom.todo.domain.model.task.status
 
 enum class Status {
     未完了,
