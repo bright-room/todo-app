@@ -6,7 +6,7 @@ dependencies {
     implementation(libs.exposed.core)
 
     testImplementation(libs.kotlin.test)
-    testImplementation(libs.kotlin.test.junit)
+    testImplementation(libs.kotlin.test.junit5)
 }
 
 java {
