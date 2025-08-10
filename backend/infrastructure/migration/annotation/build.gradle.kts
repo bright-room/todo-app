@@ -5,7 +5,6 @@ plugins {
 dependencies {
     implementation(libs.exposed.core)
 
-    testImplementation(libs.kotlin.test)
     testImplementation(libs.kotlin.test.junit5)
 }
 
