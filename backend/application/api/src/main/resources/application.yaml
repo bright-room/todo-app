@@ -1,0 +1,22 @@
+---
+ktor:
+  development: true
+  application:
+    modules:
+    - "net.brightroom.todo._configuration.logging.LoggingConfiguretionKt.configure"
+    - "net.brightroom.todo._configuration.external.exposed.ExposedConfigurationKt.configure"
+    - "net.brightroom.todo._configuration.di.DependenciesConfigurationKt.configure"
+    - "net.brightroom.todo._configuration.ApiConfigurationKt.configure"
+  deployment:
+    port: 8080
+external:
+  datasource:
+    host: "localhost"
+    port: 15432
+    database: "todo"
+    username: "brapl"
+    password: "brapl"
+    schema: "todo_app"
+    minimumIdle: 10
+    maximumPoolSize: 100
+    connectionValidateQuery: "SELECT 1"

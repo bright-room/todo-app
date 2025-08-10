@@ -48,3 +48,6 @@ include(":backend:domain")
 include(":backend:infrastructure:schemas")
 include(":backend:infrastructure:migration:annotation")
 include(":backend:infrastructure:migration:migrate")
+
+include(":backend:application:api")
+include(":backend:application:scheduler")

@@ -1,5 +1,6 @@
 [versions]
 kotlin_version = { strictly = "2.2.0" }
+ktor_version = { strictly = "3.2.3" }
 exposed_version = { strictly = "1.0.0-beta-5" }
 
 [plugins]
@@ -10,6 +11,11 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin_version" }
 kotlin-mlutiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin_version" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin_version" }
 kotlin-plugin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin_version" }
+
+#############################################
+# ktor
+#############################################
+ktor = { id = "io.ktor.plugin", version.ref = "ktor_version" }
 
 #############################################
 # spring boot plugins
@@ -27,6 +33,22 @@ spotless = { id = "com.diffplug.spotless", version = { strictly = "7.2.1" } }
 # kotlin libraries
 #############################################
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = { strictly = "0.7.1-0.6.x-compat" } }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = { strictly = "1.9.0" } }
+
+#############################################
+# ktor libraries
+#############################################
+# server
+ktor-server-health = { module = "dev.hayden:khealth", version = { strictly = "3.0.2" } }
+
+ktor-openapi = { module = "io.github.smiley4:ktor-openapi", version = { strictly = "5.1.0" } }
+ktor-swagger-ui = { module = "io.github.smiley4:ktor-swagger-ui", version = { strictly = "5.1.0" } }
+ktor-redoc = { module = "io.github.smiley4:ktor-redoc", version = { strictly = "5.1.0" } }
+
+schema-kenerator-core = { module = "io.github.smiley4:schema-kenerator-core", version = { strictly = "2.3.0" } }
+schema-kenerator-reflection = { module = "io.github.smiley4:schema-kenerator-reflection", version = { strictly = "2.3.0" } }
+schema-kenerator-serialization = { module = "io.github.smiley4:schema-kenerator-serialization", version = { strictly = "2.3.0" } }
+schema-kenerator-swagger = { module = "io.github.smiley4:schema-kenerator-swagger", version = { strictly = "2.3.0" } }
 
 #############################################
 # spring boot libraries
@@ -37,21 +59,29 @@ spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" 
 # exposed libraries
 #############################################
 exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed_version" }
-exposed-kotlin-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime", version.ref = "exposed_version" }
 exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed_version" }
 exposed-r2dbc = { module = "org.jetbrains.exposed:exposed-r2dbc", version.ref = "exposed_version" }
+exposed-kotlin-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime", version.ref = "exposed_version" }
 exposed-migration = { module = "org.jetbrains.exposed:exposed-migration", version.ref = "exposed_version" }
 
 #############################################
 # datasource connector libraries
 #############################################
 jdbc-postgresql = { module = "org.postgresql:postgresql", version = { strictly = "42.7.7" } }
+r2dbc-postgresql = { module = "org.postgresql:r2dbc-postgresql", version = { strictly = "1.0.7.RELEASE" } }
+r2dbc-pool = { module = "io.r2dbc:r2dbc-pool", version = { strictly = "1.0.2.RELEASE" } }
 
 #############################################
 # migration libraries
 #############################################
 flyway = { module = "org.flywaydb:flyway-core", version = { strictly = "10.22.0" } }
 flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version = { strictly = "10.22.0" } }
+
+#############################################
+# logging libraries
+#############################################
+logback = { module = "ch.qos.logback:logback-classic", version = { strictly = "1.5.18" } }
+slf4j-nop = { module = "org.slf4j:slf4j-nop", version = { strictly = "2.0.17" } }
 
 #############################################
 # kotlin test libraries
