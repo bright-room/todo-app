@@ -47,7 +47,6 @@ dependencies {
 
     implementation(libs.logback)
 
-    testImplementation(libs.kotlin.test)
     testImplementation(libs.kotlin.test.junit5)
     testImplementation(ktorLib.server.testHost)
 }

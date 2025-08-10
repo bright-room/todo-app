@@ -85,5 +85,4 @@ logback = { module = "ch.qos.logback:logback-classic", version = { strictly = "1
 #############################################
 # kotlin test libraries
 #############################################
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin_version" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin_version" }
