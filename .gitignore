@@ -43,3 +43,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Other ###
+tools/jwks-generator/certs/
+backend/application/api/certs/

@@ -51,3 +51,5 @@ include(":backend:infrastructure:migration:migrate")
 
 include(":backend:application:api")
 include(":backend:application:scheduler")
+
+include(":tools:jwks-generator")

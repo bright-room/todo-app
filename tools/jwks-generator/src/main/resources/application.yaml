@@ -1,0 +1,10 @@
+---
+spring:
+  application:
+    name: "jwks-generator"
+logging:
+  level:
+    net.brightroom: "info"
+batch:
+  baseDir: "certs"
+  environment: "local"
