@@ -18,7 +18,6 @@ dependencies {
     testImplementation(libs.spring.boot.starter.test)
     testImplementation(libs.java.jwt)
     testImplementation(libs.jwks.rsa)
-    testImplementation("org.bouncycastle:bcprov-jdk18on:1.81")
 }
 
 java {
