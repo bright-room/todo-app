@@ -54,6 +54,7 @@ schema-kenerator-swagger = { module = "io.github.smiley4:schema-kenerator-swagge
 # spring boot libraries
 #############################################
 spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 
 #############################################
 # exposed libraries
@@ -81,6 +82,12 @@ flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql
 # logging libraries
 #############################################
 logback = { module = "ch.qos.logback:logback-classic", version = { strictly = "1.5.18" } }
+
+#############################################
+# auth0 libraries
+#############################################
+java-jwt = { module = "com.auth0:java-jwt", version = { strictly = "4.5.0" } }
+jwks-rsa = { module = "com.auth0:jwks-rsa", version = { strictly = "0.22.2" } }
 
 #############################################
 # kotlin test libraries
