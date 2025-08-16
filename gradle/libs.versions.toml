@@ -1,5 +1,5 @@
 [versions]
-kotlin_version = { strictly = "2.2.0" }
+kotlin_version = { strictly = "2.2.10" }
 ktor_version = { strictly = "3.2.3" }
 exposed_version = { strictly = "1.0.0-beta-5" }
 
