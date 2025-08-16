@@ -41,7 +41,7 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 # server
 ktor-server-health = { module = "dev.hayden:khealth", version = { strictly = "3.0.2" } }
 
-ktor-openapi = { module = "io.github.smiley4:ktor-openapi", version = { strictly = "5.1.0" } }
+ktor-openapi = { module = "io.github.smiley4:ktor-openapi", version = { strictly = "5.2.0" } }
 ktor-swagger-ui = { module = "io.github.smiley4:ktor-swagger-ui", version = { strictly = "5.1.0" } }
 ktor-redoc = { module = "io.github.smiley4:ktor-redoc", version = { strictly = "5.1.0" } }
 
