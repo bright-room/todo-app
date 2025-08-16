@@ -43,7 +43,7 @@ ktor-server-health = { module = "dev.hayden:khealth", version = { strictly = "3.
 
 ktor-openapi = { module = "io.github.smiley4:ktor-openapi", version = { strictly = "5.2.0" } }
 ktor-swagger-ui = { module = "io.github.smiley4:ktor-swagger-ui", version = { strictly = "5.1.0" } }
-ktor-redoc = { module = "io.github.smiley4:ktor-redoc", version = { strictly = "5.1.0" } }
+ktor-redoc = { module = "io.github.smiley4:ktor-redoc", version = { strictly = "5.2.0" } }
 
 schema-kenerator-core = { module = "io.github.smiley4:schema-kenerator-core", version = { strictly = "2.3.0" } }
 schema-kenerator-reflection = { module = "io.github.smiley4:schema-kenerator-reflection", version = { strictly = "2.3.0" } }
