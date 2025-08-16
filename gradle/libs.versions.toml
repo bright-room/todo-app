@@ -87,7 +87,7 @@ logback = { module = "ch.qos.logback:logback-classic", version = { strictly = "1
 # auth0 libraries
 #############################################
 java-jwt = { module = "com.auth0:java-jwt", version = { strictly = "4.5.0" } }
-jwks-rsa = { module = "com.auth0:jwks-rsa", version = { strictly = "0.22.2" } }
+jwks-rsa = { module = "com.auth0:jwks-rsa", version = { strictly = "0.23.0" } }
 
 #############################################
 # kotlin test libraries
