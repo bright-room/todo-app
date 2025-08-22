@@ -97,7 +97,6 @@ yavi = { module = "am.ik.yavi:yavi", version = { strictly = "0.16.0" } }
 #############################################
 # other libraries
 #############################################
-commons-lang3 = { module = "org.apache.commons:commons-lang3", version = { strictly = "3.18.0" } }
 password4j = { module = "com.password4j:password4j", version = { strictly = "1.8.4" } }
 
 #############################################

@@ -11,7 +11,6 @@ dependencies {
 
     testImplementation(libs.kotlin.test.junit5)
     testImplementation(libs.junit.jupiter)
-    testImplementation(libs.commons.lang3)
 }
 
 java {
