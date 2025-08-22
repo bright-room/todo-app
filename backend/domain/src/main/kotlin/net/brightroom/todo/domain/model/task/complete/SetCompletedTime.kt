@@ -7,8 +7,8 @@ import kotlin.jvm.JvmInline
 @JvmInline
 value class SetCompletedTime(
     private val value: LocalDateTime,
-) {
-    operator fun invoke() = value
+) : CompletedTime {
+    override operator fun invoke() = value
 
     override fun toString() = value.toString()
 }

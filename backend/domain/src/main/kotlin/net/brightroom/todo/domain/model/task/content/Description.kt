@@ -5,7 +5,7 @@ import kotlin.jvm.JvmInline
 /** タスクの内容 */
 @JvmInline
 value class Description(
-    private val value: String,
+    private val value: String = "",
 ) {
     operator fun invoke() = value
 

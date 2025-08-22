@@ -90,6 +90,17 @@ java-jwt = { module = "com.auth0:java-jwt", version = { strictly = "4.5.0" } }
 jwks-rsa = { module = "com.auth0:jwks-rsa", version = { strictly = "0.23.0" } }
 
 #############################################
+# validation libraries
+#############################################
+yavi = { module = "am.ik.yavi:yavi", version = { strictly = "0.16.0" } }
+
+#############################################
+# other libraries
+#############################################
+password4j = { module = "com.password4j:password4j", version = { strictly = "1.8.4" } }
+
+#############################################
 # kotlin test libraries
 #############################################
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin_version" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version = { strictly = "5.13.4" } }
