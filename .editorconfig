@@ -1,4 +1,9 @@
+root = true
+
 [{*.kt, *.kts}]
+indent_style = space
+indent_size = 4
+
 ktlint_standard_package-name = disabled
 ktlint_standard_enum-entry-name-case = disabled
 ktlint_standard_function-naming = disabled
