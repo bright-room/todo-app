@@ -37,6 +37,12 @@
       ]
     },
     {
+      "groupName": "ktor families",
+      "matchPackagePatterns": [
+        "io.ktor"
+      ]
+    },
+    {
       "matchUpdateTypes": [
         "patch",
         "minor"
