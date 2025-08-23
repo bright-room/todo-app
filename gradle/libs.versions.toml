@@ -23,7 +23,7 @@ ktor = { id = "io.ktor.plugin", version.ref = "ktor_version" }
 #############################################
 # spring boot plugins
 #############################################
-spring-boot = { id = "org.springframework.boot", version = { strictly = "4.0.0-M1" } }
+spring-boot = { id = "org.springframework.boot", version = { strictly = "4.0.0-M2" } }
 spring-dependency-management = { id = "io.spring.dependency-management", version = { strictly = "1.1.7" } }
 
 #############################################
