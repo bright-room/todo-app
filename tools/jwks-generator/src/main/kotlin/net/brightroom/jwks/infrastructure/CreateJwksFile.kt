@@ -2,6 +2,7 @@
 
 package net.brightroom.jwks.infrastructure
 
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import net.brightroom.jwks.application.repository.CreateJwksRepository
 import net.brightroom.jwks.domain.model.Jwk
@@ -33,7 +34,7 @@ class CreateJwksFile(
             val file = path.toFile()
             file.createNewFile()
 
-            val json = json.encodeToString(jwks)
+            val json = json.encodeToString<Jwks>(jwks)
             file.writeText(json)
 
             log.info("✓ JWKS を jwks.json に保存しました")

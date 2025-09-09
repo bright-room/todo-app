@@ -1,6 +1,6 @@
 package net.brightroom.schemas.schema.todo
 
-import net.brightroom.migration.Migratable
+import net.brightroom.migration.detector.Migratable
 import net.brightroom.schemas._extensions.exposed.KotlinUUIDTable
 import org.jetbrains.exposed.v1.datetime.CurrentDateTime
 import org.jetbrains.exposed.v1.datetime.datetime

@@ -4,15 +4,13 @@ plugins {
 
 dependencies {
     implementation(projects.backend.domain)
-    implementation(projects.backend.infrastructure.migration.annotation)
+    implementation(projects.backend.infrastructure.migration.detector)
 
     implementation(libs.exposed.core)
     implementation(libs.exposed.kotlin.datetime)
     implementation(libs.exposed.r2dbc)
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
+kotlin {
+    jvmToolchain(21)
 }

@@ -1,0 +1,15 @@
+---
+spring:
+  application:
+    name: "database-migration"
+  datasource:
+    url: "${DATASOURCE_TODO_URL}"
+    username: "${DATASOURCE_TODO_USERNAME}"
+    password: "${DATASOURCE_TODO_PASSWORD}"
+    driver-class-name: "org.postgresql.Driver"
+logging:
+  level:
+    Exposed: "debug"
+    net.brightroom: "info"
+migration:
+  migrate-package: "net.brightroom.schemas.schema.todo"

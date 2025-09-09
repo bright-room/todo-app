@@ -1,0 +1,10 @@
+---
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:15432/todo?currentSchema=public"
+    username: "brapl"
+    password: "brapl"
+    driver-class-name: "org.postgresql.Driver"
+logging:
+  level:
+    net.brightroom: "debug"
