@@ -1,4 +1,4 @@
-package net.brightroom.schemas._extensions.exposed
+package net.brightroom.schemas.schema.extensions.uuid
 
 import org.jetbrains.exposed.v1.core.ColumnType
 import org.jetbrains.exposed.v1.core.InternalApi
@@ -14,7 +14,7 @@ import kotlin.uuid.toJavaUuid
 import kotlin.uuid.toKotlinUuid
 
 @OptIn(ExperimentalUuidApi::class)
-class KotlinUUIDColumnType : ColumnType<Uuid>() {
+internal class KotlinUUIDColumnType : ColumnType<Uuid>() {
     override fun sqlType(): String = currentDialect.dataTypeProvider.uuidType()
 
     override fun valueFromDB(value: Any): Uuid =

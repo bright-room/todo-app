@@ -1,4 +1,4 @@
-package net.brightroom.schemas._extensions.exposed
+package net.brightroom.schemas.schema.extensions.uuid
 
 import org.jetbrains.exposed.v1.core.Column
 import org.jetbrains.exposed.v1.core.Table
@@ -18,7 +18,7 @@ open class KotlinUUIDTable(
 }
 
 @OptIn(ExperimentalUuidApi::class)
-fun Table.kotlinUUID(name: String): Column<Uuid> = registerColumn(name, KotlinUUIDColumnType())
+internal fun Table.kotlinUUID(name: String): Column<Uuid> = registerColumn(name, KotlinUUIDColumnType())
 
 @OptIn(ExperimentalUuidApi::class)
-fun Column<Uuid>.autoGenerate(): Column<Uuid> = clientDefault { Uuid.random() }
+internal fun Column<Uuid>.autoGenerate(): Column<Uuid> = clientDefault { Uuid.random() }
