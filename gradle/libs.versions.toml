@@ -57,6 +57,7 @@ schema-kenerator-swagger = { module = "io.github.smiley4:schema-kenerator-swagge
 # spring boot libraries
 #############################################
 spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" }
+spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 
 #############################################
