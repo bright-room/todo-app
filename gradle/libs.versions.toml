@@ -23,7 +23,7 @@ ktor = { id = "io.ktor.plugin", version.ref = "ktor_version" }
 #############################################
 # spring boot plugins
 #############################################
-spring-boot = { id = "org.springframework.boot", version = { strictly = "4.0.0-M1" } }
+spring-boot = { id = "org.springframework.boot", version = { strictly = "3.5.5" } }
 spring-dependency-management = { id = "io.spring.dependency-management", version = { strictly = "1.1.7" } }
 
 #############################################
@@ -67,6 +67,7 @@ exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "e
 exposed-r2dbc = { module = "org.jetbrains.exposed:exposed-r2dbc", version.ref = "exposed_version" }
 exposed-kotlin-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime", version.ref = "exposed_version" }
 exposed-migration = { module = "org.jetbrains.exposed:exposed-migration", version.ref = "exposed_version" }
+exposed-spring-boot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed_version" }
 
 #############################################
 # datasource connector libraries
