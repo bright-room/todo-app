@@ -1,6 +1,5 @@
 package net.brightroom.migration.generator._configuration
 
-import net.brightroom.migration.generator.domain.model.MigrationPackage
 import net.brightroom.migration.generator.domain.model.OutputDirectory
 import net.brightroom.migration.generator.domain.model.ScriptName
 import net.brightroom.migration.generator.domain.model.Version
@@ -15,24 +14,18 @@ import org.springframework.context.annotation.Configuration
     value = [ExposedAutoConfiguration::class],
     exclude = [DataSourceTransactionManagerAutoConfiguration::class],
 )
-class MigrateConfiguration(
-    private val migrationProperties: MigrationProperties,
+class MigrateGeneratorConfiguration(
+    private val migrationGeneratorProperties: MigrationGeneratorProperties,
 ) {
     @Bean
-    fun migratePackage(): MigrationPackage {
-        val migratePackage = migrationProperties.migratePackage
-        return MigrationPackage(migratePackage)
-    }
-
-    @Bean
     fun outputDirectory(): OutputDirectory {
-        val directory = migrationProperties.generateScript.outputDirectory
+        val directory = migrationGeneratorProperties.outputDirectory
         return OutputDirectory(directory)
     }
 
     @Bean
     fun scriptName(): ScriptName {
-        val suffix = migrationProperties.generateScript.filenameSuffix
+        val suffix = migrationGeneratorProperties.filenameSuffix
         return ScriptName.create(Version(), suffix)
     }
 }
