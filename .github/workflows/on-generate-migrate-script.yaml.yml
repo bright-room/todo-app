@@ -1,0 +1,41 @@
+---
+name: "on-generate-migrate-script"
+"on":
+  pull_request:
+    paths:
+    - "backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/**"
+jobs:
+  generate-migrate-script:
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 15
+    steps:
+    - name: "Checkout Repository"
+      uses: "actions/checkout@v5"
+    - name: "Docker Compose up"
+      run: "docker compose up -d"
+    - name: "Gradle Cache"
+      uses: "./.github/actions/gradle-cache"
+    - name: "Execute Migration Script"
+      uses: "./.github/actions/gradle-action"
+      with:
+        command: ":backend:infrastructure:migration:executor:bootRun"
+    - name: "Generate Migration Script"
+      uses: "./.github/actions/gradle-action"
+      with:
+        command: ":backend:infrastructure:migration:generator:bootRun"
+    - name: "Check Migrate"
+      uses: "./.github/actions/gradle-action"
+      with:
+        command: ":backend:infrastructure:migration:executor:bootRun"
+    - name: "Setup Git"
+      run: "git config user.name \"github-actions[bot]\"\ngit config user.email \"\
+        41898282+github-actions[bot]@users.noreply.github.com\"\n"
+    - name: "Count changes"
+      id: "changes"
+      run: "git add -N .\necho \"::set-output name=count::$(git diff --name-only |\
+        \ wc -l)\"\n"
+    - name: "Commit & Push"
+      run: "git add .\ngit commit -m \"Generate migration script\"\ngit push\n"
+      if: "steps.changes.outputs.count > 0"
+    - name: "Docker Compose down"
+      run: "docker compose down -v"
