@@ -1,0 +1,34 @@
+---
+name: "Check migration scripts"
+"on":
+  pull_request:
+    paths:
+    - "backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/**"
+    - "backend/infrastructure/migration/executor/src/main/resources/migration/**"
+jobs:
+  check-migration:
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 10
+    steps:
+    - name: "Checkout repository"
+      uses: "actions/checkout@v5"
+    - name: "Docker Compose up"
+      run: "docker compose up -d"
+    - name: "Restore gradle caches"
+      uses: "./.github/actions/gradle-cache"
+    - name: "Execute migrate"
+      uses: "./.github/actions/gradle-action"
+      with:
+        command: ":backend:infrastructure:migration:executor:bootRun"
+    - name: "Generate migration script"
+      uses: "./.github/actions/gradle-action"
+      with:
+        command: ":backend:infrastructure:migration:generator:bootRun"
+    - name: "Docker Compose down"
+      run: "docker compose down -v"
+    - name: "Fail if migration scripts are missing in PR"
+      run: "git add -N .\nchanges=$(git diff --name-only | grep '^backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/'\
+        \ || true)\n\nif [ -n \"$changes\" ]; then\n  echo \"❌ Migration scripts have\
+        \ been generated but not committed:\"\n  echo \"$changes\"\n  echo \"Please\
+        \ run the generator locally and commit the migration files.\"\n  exit 1\n\
+        else\n  echo \"✅ No uncommitted migration scripts found.\"\nfi\n"
