@@ -4,7 +4,7 @@ import kotlin.reflect.KClass
 import kotlin.reflect.full.isSubclassOf
 
 @JvmInline
-value class ScanClass(
+internal value class ScanClass(
     private val value: KClass<*>,
 ) {
     fun hasAnnotation(target: KClass<out Annotation>): Boolean =

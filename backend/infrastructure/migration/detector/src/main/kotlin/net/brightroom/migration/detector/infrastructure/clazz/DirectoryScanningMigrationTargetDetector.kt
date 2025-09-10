@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository
 import java.io.File
 
 @Repository
-class DirectoryScanningMigrationTargetDetector : MigrationTargetDetectRepository {
+internal class DirectoryScanningMigrationTargetDetector : MigrationTargetDetectRepository {
     override fun listAll(scanBasePackage: ScanBasePackage): ScanClasses {
         val classLoader = Thread.currentThread().contextClassLoader
         val path = scanBasePackage.toPath()

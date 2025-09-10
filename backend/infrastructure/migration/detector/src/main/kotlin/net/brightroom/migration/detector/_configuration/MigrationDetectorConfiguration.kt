@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class MigrationDetectorConfiguration(
+internal class MigrationDetectorConfiguration(
     @param:Value($$"${migration.scan-base-package}") private val scanBasePackage: String,
 ) {
     @Bean

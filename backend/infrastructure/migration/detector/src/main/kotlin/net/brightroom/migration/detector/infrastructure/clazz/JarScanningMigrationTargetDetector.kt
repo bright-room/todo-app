@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository
 import java.net.JarURLConnection
 
 @Repository
-class JarScanningMigrationTargetDetector : MigrationTargetDetectRepository {
+internal class JarScanningMigrationTargetDetector : MigrationTargetDetectRepository {
     override fun listAll(scanBasePackage: ScanBasePackage): ScanClasses {
         val classLoader = Thread.currentThread().contextClassLoader
         val path = scanBasePackage.toPath()

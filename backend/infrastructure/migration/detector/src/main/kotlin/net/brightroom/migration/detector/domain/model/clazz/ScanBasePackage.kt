@@ -3,7 +3,7 @@ package net.brightroom.migration.detector.domain.model.clazz
 /**
  * スキャンを行うベースパッケージ
  */
-class ScanBasePackage(
+internal class ScanBasePackage(
     private val value: String,
 ) {
     fun resolve(path: String): ScanBasePackage = ScanBasePackage("$value.$path")

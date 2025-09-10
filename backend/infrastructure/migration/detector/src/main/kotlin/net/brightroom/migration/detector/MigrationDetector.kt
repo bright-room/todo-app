@@ -7,7 +7,7 @@ import net.brightroom.migration.detector.domain.model.table.MigrationTables
 import org.springframework.stereotype.Component
 
 @Component
-class MigrationDetector(
+class MigrationDetector internal constructor(
     private val migrationTargetDetectService: MigrationTargetDetectService,
     private val scanBasePackage: ScanBasePackage,
 ) {

@@ -4,7 +4,7 @@ import net.brightroom.migration.detector.Migratable
 import net.brightroom.migration.detector.domain.model.clazz.ScanClasses
 import org.jetbrains.exposed.v1.core.Table
 
-object MigrationTableFactory {
+internal object MigrationTableFactory {
     fun create(scanClasses: ScanClasses): MigrationTables {
         val extractedScanClasses =
             scanClasses
