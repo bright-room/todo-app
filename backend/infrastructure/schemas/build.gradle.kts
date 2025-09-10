@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     implementation(projects.backend.domain)
-    implementation(projects.backend.infrastructure.migration.detector)
+    implementation(projects.backend.infrastructure.migration.annotation)
 
     implementation(libs.exposed.core)
     implementation(libs.exposed.kotlin.datetime)

@@ -11,6 +11,7 @@ dependencies {
     implementation(projects.backend.infrastructure.migration.detector)
 
     implementation(libs.spring.boot.starter)
+    annotationProcessor(libs.spring.boot.configuration.processor)
 
     implementation(libs.kotlinx.datetime)
 

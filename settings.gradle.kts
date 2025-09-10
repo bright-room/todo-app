@@ -46,6 +46,7 @@ include(":shared")
 include(":backend:domain")
 
 include(":backend:infrastructure:schemas")
+include(":backend:infrastructure:migration:annotation")
 include(":backend:infrastructure:migration:detector")
 include(":backend:infrastructure:migration:generator")
 include(":backend:infrastructure:migration:executor")
