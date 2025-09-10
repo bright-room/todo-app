@@ -13,7 +13,7 @@ dependencies {
 
     implementation(kotlin("reflect"))
 
-    testImplementation(libs.kotlin.test.junit5)
+    testImplementation(libs.spring.boot.starter.test)
 }
 
 kotlin {

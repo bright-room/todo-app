@@ -3,6 +3,9 @@ package net.brightroom.migration.detector.domain.model.clazz
 import kotlin.reflect.KClass
 import kotlin.reflect.full.isSubclassOf
 
+/**
+ * スキャンされたクラス
+ */
 @JvmInline
 internal value class ScanClass(
     private val value: KClass<*>,
