@@ -12,6 +12,6 @@ logging:
     net.brightroom: "debug"
 migration:
   scan-base-package: "net.brightroom.schemas.schema.todo"
-  generate-script:
+  generate:
     output-directory: "../executor/src/main/resources/migration"
     filename-suffix: "generated_migration_script"

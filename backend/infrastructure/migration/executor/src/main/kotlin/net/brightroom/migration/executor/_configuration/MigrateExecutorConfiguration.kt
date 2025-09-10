@@ -1,6 +1,5 @@
 package net.brightroom.migration.executor._configuration
 
-import net.brightroom.migration.executor.domain.model.MigrationPackage
 import org.flywaydb.core.Flyway
 import org.jetbrains.exposed.v1.spring.boot.autoconfigure.ExposedAutoConfiguration
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration
@@ -14,21 +13,15 @@ import javax.sql.DataSource
     value = [ExposedAutoConfiguration::class],
     exclude = [DataSourceTransactionManagerAutoConfiguration::class],
 )
-class MigrateConfiguration(
-    private val migrationProperties: MigrationProperties,
+class MigrateExecutorConfiguration(
+    private val migrationExecutorProperties: MigrationExecutorProperties,
 ) {
     @Bean
     fun flyway(dataSource: DataSource): Flyway =
         Flyway
             .configure()
             .dataSource(dataSource)
-            .locations("classpath:migration")
+            .locations(migrationExecutorProperties.scriptLocation)
             .baselineOnMigrate(true)
             .load()
-
-    @Bean
-    fun migratePackage(): MigrationPackage {
-        val migratePackage = migrationProperties.migratePackage
-        return MigrationPackage(migratePackage)
-    }
 }
