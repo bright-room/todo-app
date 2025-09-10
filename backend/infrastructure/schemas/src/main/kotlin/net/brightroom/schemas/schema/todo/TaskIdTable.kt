@@ -2,7 +2,7 @@
 
 package net.brightroom.schemas.schema.todo
 
-import net.brightroom.migration.detector.Migratable
+import net.brightroom.migration.annotation.Migratable
 import net.brightroom.schemas.schema.extensions.uuid.KotlinUUIDTable
 import org.jetbrains.exposed.v1.datetime.CurrentDateTime
 import org.jetbrains.exposed.v1.datetime.datetime

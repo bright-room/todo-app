@@ -1,6 +1,6 @@
 package net.brightroom.migration.detector.domain.model.table
 
-import net.brightroom.migration.detector.Migratable
+import net.brightroom.migration.annotation.Migratable
 import net.brightroom.migration.detector.domain.model.clazz.ScanClass
 import net.brightroom.migration.detector.domain.model.clazz.ScanClasses
 import net.brightroom.migration.detector.domain.model.table.dummy.AnnotatedNonClass

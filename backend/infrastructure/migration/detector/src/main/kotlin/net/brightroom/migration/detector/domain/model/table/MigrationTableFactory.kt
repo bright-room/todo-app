@@ -1,6 +1,6 @@
 package net.brightroom.migration.detector.domain.model.table
 
-import net.brightroom.migration.detector.Migratable
+import net.brightroom.migration.annotation.Migratable
 import net.brightroom.migration.detector.domain.model.clazz.ScanClasses
 import org.jetbrains.exposed.v1.core.Table
 

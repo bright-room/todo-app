@@ -5,7 +5,6 @@ exposed_version = { strictly = "1.0.0-beta-5" }
 smiley4_ktor_opendocs_version = { strictly = "5.2.0" }
 smiley4_schema_kenerator_version = { strictly = "2.3.0" }
 flyway_version = { strictly = "11.11.2" }
-spring_boot = { strictly = "3.5.5" }
 
 [plugins]
 #############################################
@@ -24,7 +23,7 @@ ktor = { id = "io.ktor.plugin", version.ref = "ktor_version" }
 #############################################
 # spring boot plugins
 #############################################
-spring-boot = { id = "org.springframework.boot", version.ref = "spring_boot" }
+spring-boot = { id = "org.springframework.boot", version = { strictly = "3.5.5" } }
 spring-dependency-management = { id = "io.spring.dependency-management", version = { strictly = "1.1.7" } }
 
 #############################################
@@ -57,9 +56,9 @@ schema-kenerator-swagger = { module = "io.github.smiley4:schema-kenerator-swagge
 #############################################
 # spring boot libraries
 #############################################
-spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "spring_boot" }
-spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "spring_boot" }
-spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring_boot" }
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" }
+spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 
 #############################################
 # exposed libraries

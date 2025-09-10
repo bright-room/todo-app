@@ -6,6 +6,8 @@ plugins {
 }
 
 dependencies {
+    implementation(projects.backend.infrastructure.migration.annotation)
+
     implementation(libs.spring.boot.starter)
     implementation(libs.exposed.core)
 
