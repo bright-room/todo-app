@@ -8,6 +8,7 @@ import org.jetbrains.exposed.v1.core.ExperimentalDatabaseMigrationApi
 import org.jetbrains.exposed.v1.migration.MigrationUtils
 import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
+import java.io.File
 
 @Repository
 class MigrationScriptFileGenerator(
@@ -23,5 +24,17 @@ class MigrationScriptFileGenerator(
             scriptName = scriptName(),
             withLogs = false,
         )
+
+        deleteIfEmptyFile()
+    }
+
+    private fun deleteIfEmptyFile() {
+        val file = File(outputDirectory(), "${scriptName()}.sql")
+
+        if (!file.exists()) return
+        if (!file.isFile) return
+        if (file.length() != 0L) return
+
+        file.delete()
     }
 }
