@@ -4,6 +4,7 @@ name: "Check migration scripts"
   pull_request:
     paths:
     - "backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/**"
+    - "backend/infrastructure/migration/executor/src/main/resources/migration/**"
 jobs:
   check-migration:
     runs-on: "ubuntu-latest"
