@@ -1,0 +1,29 @@
+---
+name: "Check lint and test"
+"on":
+  pull_request: null
+jobs:
+  check-lint:
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 10
+    steps:
+    - name: "Checkout Repository"
+      uses: "actions/checkout@v5"
+    - name: "Gradle Cache"
+      uses: "./.github/actions/gradle-cache"
+    - name: "Check with Gradle"
+      uses: "./.github/actions/gradle-action"
+      with:
+        command: "spotlessCheck"
+  check-test:
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 10
+    steps:
+    - name: "Checkout Repository"
+      uses: "actions/checkout@v5"
+    - name: "Gradle Cache"
+      uses: "./.github/actions/gradle-cache"
+    - name: "Check with Gradle"
+      uses: "./.github/actions/gradle-action"
+      with:
+        command: "test"

@@ -1,13 +1,13 @@
 ---
-name: "on-generate-migrate-script"
+name: "Check migration scripts"
 "on":
   pull_request:
     paths:
     - "backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/**"
 jobs:
-  generate-migrate-script:
+  check-migration:
     runs-on: "ubuntu-latest"
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
     - name: "Checkout Repository"
       uses: "actions/checkout@v5"
@@ -23,19 +23,14 @@ jobs:
       uses: "./.github/actions/gradle-action"
       with:
         command: ":backend:infrastructure:migration:generator:bootRun"
-    - name: "Check Migrate"
-      uses: "./.github/actions/gradle-action"
-      with:
-        command: ":backend:infrastructure:migration:executor:bootRun"
-    - name: "Setup Git"
-      run: "git config user.name \"github-actions[bot]\"\ngit config user.email \"\
-        41898282+github-actions[bot]@users.noreply.github.com\"\n"
-    - name: "Count changes"
-      id: "changes"
-      run: "git add -N .\necho \"::set-output name=count::$(git diff --name-only |\
-        \ wc -l)\"\n"
-    - name: "Commit & Push"
-      run: "git add .\ngit commit -m \"Generate migration script\"\ngit push\n"
-      if: "steps.changes.outputs.count > 0"
     - name: "Docker Compose down"
       run: "docker compose down -v"
+    - name: "Count changes"
+      id: "changes"
+      run: "git add -N .\ncount=$(git diff --name-only | grep '^backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/'\
+        \ | wc -l)\necho \"count=$count\" >> $GITHUB_OUTPUT\n"
+    - name: "Fail if migration scripts are missing in PR"
+      if: "steps.changes.outputs.count != '0'"
+      run: "echo \"❌ Migration scripts have been generated but not committed.\"\n\
+        echo \"Please run the generator locally and commit the migration files.\"\n\
+        exit 1\n"
