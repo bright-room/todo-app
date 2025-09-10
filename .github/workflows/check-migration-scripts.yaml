@@ -27,8 +27,8 @@ jobs:
     - name: "Docker Compose down"
       run: "docker compose down -v"
     - name: "Fail if migration scripts are missing in PR"
-      run: "git add -N .\ncount=$(git diff --name-only | grep '^backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/'\
-        \ | wc -l)\n\nif [ -n \"$count\" ]; then\n  echo \"❌ Migration scripts have\
-        \ been generated but not committed:\"\n  echo \"$count\"\n  echo \"Please\
+      run: "git add -N .\nchanges=$(git diff --name-only | grep '^backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/'\
+        \ || true)\n\nif [ -n \"$changes\" ]; then\n  echo \"❌ Migration scripts have\
+        \ been generated but not committed:\"\n  echo \"$changes\"\n  echo \"Please\
         \ run the generator locally and commit the migration files.\"\n  exit 1\n\
         else\n  echo \"✅ No uncommitted migration scripts found.\"\nfi\n"
