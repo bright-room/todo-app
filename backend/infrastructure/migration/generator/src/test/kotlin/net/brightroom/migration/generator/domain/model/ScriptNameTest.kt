@@ -18,7 +18,7 @@ class ScriptNameTest {
     }
 
     @Test
-    fun `createでバージョンとサフィックスが結合される`() {
+    fun `スクリプトファイル名を生成できる`() {
         mockkStatic(LocalDateTime::now)
         val fixed = LocalDateTime(2024, 12, 31, 23, 59, 1, 2_000_000)
         every { LocalDateTime.now(any()) } returns fixed

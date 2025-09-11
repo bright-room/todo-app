@@ -18,7 +18,7 @@ class VersionTest {
     }
 
     @Test
-    fun `asTextが期待どおりのフォーマットで返される`() {
+    fun `バージョンを生成できる`() {
         mockkStatic(LocalDateTime::now)
         val fixed = LocalDateTime(2024, 1, 2, 3, 4, 5, 678_000_000)
         every { LocalDateTime.now(any()) } returns fixed
