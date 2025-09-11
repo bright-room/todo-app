@@ -16,12 +16,15 @@ dependencies {
     implementation(libs.kotlinx.datetime)
 
     implementation(libs.exposed.spring.boot.starter)
+    implementation(libs.exposed.jdbc)
     implementation(libs.exposed.migration)
 
     runtimeOnly(libs.jdbc.postgresql)
 
     testImplementation(libs.spring.boot.starter.test)
     testImplementation(libs.mockk)
+
+    testRuntimeOnly(libs.h2)
 }
 
 kotlin {
