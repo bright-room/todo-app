@@ -19,6 +19,9 @@ dependencies {
     implementation(libs.exposed.migration)
 
     runtimeOnly(libs.jdbc.postgresql)
+
+    testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.mockk)
 }
 
 kotlin {
@@ -28,5 +31,8 @@ kotlin {
 tasks {
     processTestResources {
         duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+    test {
+        useJUnitPlatform()
     }
 }
