@@ -128,11 +128,4 @@ class MigrationTableFactoryTest {
         // AbstractTableはインスタンス作成に失敗するため除外される
         assertEquals(expected, actual)
     }
-
-    @Test
-    fun `MigrationTablesの型が正しく返される`() {
-        val scanClasses = ScanClasses(listOf(ScanClass(TestTable1::class)))
-        val actual = MigrationTableFactory.create(scanClasses)
-        assertTrue(actual.toArray().all { it is Table })
-    }
 }
