@@ -10,5 +10,5 @@ import kotlin.uuid.ExperimentalUuidApi
 
 @Migratable
 object TaskIdTable : KotlinUUIDTable("task_id") {
-    val createdAt = datetime("created_at").defaultExpression(CurrentDateTime).index()
+    val created_at = datetime("created_at").defaultExpression(CurrentDateTime).index()
 }
