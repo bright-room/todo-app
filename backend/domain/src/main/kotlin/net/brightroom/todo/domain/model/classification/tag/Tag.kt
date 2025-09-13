@@ -1,9 +1,12 @@
 package net.brightroom.todo.domain.model.classification.tag
 
+import kotlinx.serialization.Serializable
+
 /**
  * タグ
  */
 @JvmInline
+@Serializable
 value class Tag(
     private val value: String,
 ) {
