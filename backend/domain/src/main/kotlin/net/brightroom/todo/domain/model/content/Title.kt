@@ -1,11 +1,13 @@
 package net.brightroom.todo.domain.model.content
 
 import am.ik.yavi.builder.validator
+import kotlinx.serialization.Serializable
 
 /**
  * タイトル
  */
 @JvmInline
+@Serializable
 value class Title(
     private val value: String,
 ) {

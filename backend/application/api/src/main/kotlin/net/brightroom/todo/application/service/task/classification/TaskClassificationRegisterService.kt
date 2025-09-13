@@ -1,0 +1,7 @@
+package net.brightroom.todo.application.service.task.classification
+
+import net.brightroom.todo.application.repository.task.classification.TaskClassificationRegisterRepository
+
+class TaskClassificationRegisterService(
+    private val taskClassificationRegisterRepository: TaskClassificationRegisterRepository,
+) : TaskClassificationRegisterRepository by taskClassificationRegisterRepository

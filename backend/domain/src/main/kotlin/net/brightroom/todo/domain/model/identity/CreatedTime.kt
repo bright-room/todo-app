@@ -1,6 +1,7 @@
 package net.brightroom.todo.domain.model.identity
 
 import kotlinx.datetime.LocalDateTime
+import net.brightroom._extensions.kotlinx.datetime.now
 
 /**
  * 作成日時
@@ -12,4 +13,8 @@ value class CreatedTime(
     operator fun invoke(): LocalDateTime = value
 
     override fun toString(): String = value.toString()
+
+    companion object {
+        fun now(): CreatedTime = CreatedTime(LocalDateTime.now())
+    }
 }

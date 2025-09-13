@@ -45,6 +45,8 @@ dependencies {
     implementation(libs.r2dbc.postgresql)
     implementation(libs.r2dbc.pool)
 
+    implementation(libs.yavi)
+
     implementation(libs.logback)
 
     testImplementation(libs.kotlin.test.junit5)
