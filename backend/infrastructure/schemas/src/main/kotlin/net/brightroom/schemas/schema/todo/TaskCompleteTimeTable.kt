@@ -10,6 +10,6 @@ import kotlin.uuid.ExperimentalUuidApi
 
 @Migratable
 object TaskCompleteTimeTable : IntIdTable("task_complete_time") {
-    val taskId = reference("task_id", TaskIdTable)
+    val task_id = reference("task_id", TaskIdTable)
     val completed_at = datetime("completed_at").defaultExpression(CurrentDateTime).index()
 }

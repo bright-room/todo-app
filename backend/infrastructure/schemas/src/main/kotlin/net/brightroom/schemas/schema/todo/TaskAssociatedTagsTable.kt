@@ -11,6 +11,6 @@ import kotlin.uuid.ExperimentalUuidApi
 @Migratable
 object TaskAssociatedTagsTable : IntIdTable("task_associated_tags") {
     val task_id = reference("task_id", TaskIdTable)
-    val tag_id = reference("tag_id", TaskTagTable)
+    val tag_id = reference("tag_id", TagsTable)
     val created_at = datetime("created_at").defaultExpression(CurrentDateTime).index()
 }
