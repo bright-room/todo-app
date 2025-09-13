@@ -2,6 +2,7 @@
 
 package net.brightroom.todo.domain.model.identity
 
+import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmInline
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
@@ -10,6 +11,7 @@ import kotlin.uuid.Uuid
  * タスクを識別する一意な識別子
  */
 @JvmInline
+@Serializable
 value class Id(
     private val value: Uuid,
 ) {
