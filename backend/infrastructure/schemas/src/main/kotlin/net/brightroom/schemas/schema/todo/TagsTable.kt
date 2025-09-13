@@ -6,7 +6,7 @@ import org.jetbrains.exposed.v1.datetime.CurrentDateTime
 import org.jetbrains.exposed.v1.datetime.datetime
 
 @Migratable
-object TaskTagTable : IntIdTable("task_tag") {
-    val name = varchar("name", 255)
+object TagsTable : IntIdTable("tags") {
+    val name = varchar("name", 255).uniqueIndex()
     val created_at = datetime("created_at").defaultExpression(CurrentDateTime).index()
 }
