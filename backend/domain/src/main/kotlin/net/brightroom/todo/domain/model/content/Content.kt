@@ -10,8 +10,9 @@ data class Content(
     val description: Description,
 ) {
     companion object {
-        val validator = validator {
-            Content::title nest Title.validator
-        }
+        val validator =
+            validator {
+                Content::title nest Title.validator
+            }
     }
 }
