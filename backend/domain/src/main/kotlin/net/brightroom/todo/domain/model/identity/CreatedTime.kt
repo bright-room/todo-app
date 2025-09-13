@@ -1,12 +1,14 @@
 package net.brightroom.todo.domain.model.identity
 
 import kotlinx.datetime.LocalDateTime
+import kotlinx.serialization.Serializable
 import net.brightroom._extensions.kotlinx.datetime.now
 
 /**
  * 作成日時
  */
 @JvmInline
+@Serializable
 value class CreatedTime(
     private val value: LocalDateTime,
 ) {

@@ -14,8 +14,8 @@ import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabaseConfig
 import org.jetbrains.exposed.v1.r2dbc.transactions.TransactionManager
 
-fun Application.configure(
-    @Property("external.datasource") properties: ExposedDataSourceProperties,
+fun Application.exposedConfigure(
+    @Property("ktor.datasource") properties: ExposedDataSourceProperties,
 ) {
     val options =
         PostgresqlConnectionConfiguration

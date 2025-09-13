@@ -2,8 +2,8 @@
 spring:
   datasource:
     url: "jdbc:postgresql://localhost:15432/todo?currentSchema=public"
-    username: "brapl"
-    password: "brapl"
+    username: "bradmin"
+    password: "bradmin"
     driver-class-name: "org.postgresql.Driver"
 logging:
   level:

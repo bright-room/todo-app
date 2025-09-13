@@ -10,22 +10,24 @@ import io.ktor.server.plugins.calllogging.processingTimeMillis
 import io.ktor.server.plugins.di.annotations.Property
 import io.ktor.server.plugins.doublereceive.DoubleReceive
 import io.ktor.server.plugins.origin
-import io.ktor.server.request.contentType
-import io.ktor.server.request.header
 import io.ktor.server.request.httpMethod
 import io.ktor.server.request.path
 import io.ktor.server.request.receiveText
-import io.ktor.server.response.header
 import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.Serializable
+import net.brightroom._extensions.kotlinx.serialization.CustomJson
+import net.brightroom.todo._configuration.Environment
 import org.slf4j.event.Level
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @OptIn(ExperimentalUuidApi::class)
-fun Application.configure(
-    @Property("ktor.development") isDevelopment: Boolean,
+fun Application.loggingConfigure(
+    @Property("ktor.environment") environment: Environment,
 ) {
-    install(DoubleReceive)
+    if (!environment.isProduction()) {
+        install(DoubleReceive)
+    }
 
     install(CallId) {
         header(HttpHeaders.XRequestId)
@@ -45,53 +47,100 @@ fun Application.configure(
 
         filter { call ->
             val path = call.request.path()
-            path.startsWith("/v1")
+            path.startsWith("/api/v1")
         }
 
         format { call ->
-            val builder = StringBuilder()
-
-            val remoteHost = call.request.origin.remoteHost
-            builder.append("remoteHost:$remoteHost ")
+            val remoteUrl = call.request.origin.remoteHost
 
             val serverHost = call.request.origin.serverHost
             val serverPort = call.request.origin.serverPort
-            val host = "$serverHost${if (serverPort != 80) ":$serverPort" else ""}"
-            builder.append("host:$host ")
+            val serverUrl = "$serverHost${if (serverPort != 80) ":$serverPort" else ""}"
 
-            val requestUrl = call.request.path()
-            builder.append("requestUrl:$requestUrl ")
+            val path = call.request.path()
+            val method = call.request.httpMethod
 
-            val httpMethod = call.request.httpMethod.value
-            builder.append("httpMethod:$httpMethod ")
+            val headers =
+                call.request.headers
+                    .entries()
+                    .associate { it.key to it.value }
 
-            val contentType = call.request.contentType()
-            builder.append("contentType:$contentType ")
+            val queryParameters = call.request.queryParameters
+            val queryParams =
+                queryParameters
+                    .entries()
+                    .associate { it.key to it.value.first() }
+
+            val requestBody = if (environment.isProduction()) "" else runBlocking { call.receiveText() }
+
+            val requestLogging =
+                RequestLogging(
+                    remoteUrl = remoteUrl,
+                    serverUrl = serverUrl,
+                    path = path,
+                    method = method.value,
+                    headers = headers,
+                    content =
+                        RequestContent(
+                            params = queryParams,
+                            body = requestBody,
+                        ),
+                )
 
             val status = call.response.status()
-            builder.append("status:$status ")
-
             val size = call.response.headers[HttpHeaders.ContentLength]?.toInt() ?: 0
-            builder.append("size:$size ")
+
+            val responseLogging =
+                ResponseLogging(
+                    status = "${status?.value ?: ""} ${status?.description ?: ""}",
+                    size = size,
+                )
 
             val processingTimeMillis = call.processingTimeMillis()
-            builder.append("processingTimeMillis:${processingTimeMillis}ms ")
 
-            val authorization = call.request.headers["Authorization"] ?: "none"
-            builder.append("authorization:$authorization ")
+            val logging =
+                CallLogging(
+                    request = requestLogging,
+                    response = responseLogging,
+                    processingTimeMillis = processingTimeMillis,
+                )
 
-            val userAgent = call.request.headers["User-Agent"]
-            builder.append("userAgent:$userAgent ")
+            val json = CustomJson
+            val jsonLogging =
+                json
+                    .encodeToString(logging)
+                    .trimIndent()
 
-            if (isDevelopment) {
-                builder.appendLine()
-
-                val requestBody = runBlocking { call.receiveText() }
-                builder.appendLine("requestLog:")
-                builder.append(requestBody)
-            }
-
-            builder.toString()
+            "call logging\n$jsonLogging"
         }
     }
 }
+
+@Serializable
+private data class CallLogging(
+    val request: RequestLogging,
+    val response: ResponseLogging,
+    val processingTimeMillis: Long,
+)
+
+@Serializable
+private data class RequestLogging(
+    val remoteUrl: String,
+    val serverUrl: String,
+    val path: String,
+    val method: String,
+    val headers: Map<String, List<String>> = emptyMap(),
+    val content: RequestContent,
+)
+
+@Serializable
+private data class RequestContent(
+    val params: Map<String, String> = emptyMap(),
+    val body: String,
+)
+
+@Serializable
+private data class ResponseLogging(
+    val status: String,
+    val size: Int,
+)

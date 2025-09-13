@@ -1,0 +1,4 @@
+---
+ktor:
+  datasource:
+    database: "$DATASOURCE_DBNAME:todo_test"

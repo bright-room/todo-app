@@ -16,11 +16,6 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 kotlin-plugin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin_version" }
 
 #############################################
-# ktor
-#############################################
-ktor = { id = "io.ktor.plugin", version.ref = "ktor_version" }
-
-#############################################
 # spring boot plugins
 #############################################
 spring-boot = { id = "org.springframework.boot", version = { strictly = "3.5.6" } }
@@ -37,6 +32,7 @@ spotless = { id = "com.diffplug.spotless", version = { strictly = "7.2.1" } }
 #############################################
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = { strictly = "0.7.1-0.6.x-compat" } }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = { strictly = "1.9.0" } }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = { strictly = "1.10.2" } }
 
 #############################################
 # ktor libraries

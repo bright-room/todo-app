@@ -6,7 +6,11 @@ plugins {
 }
 
 kotlin {
-    jvm()
+    jvm {
+        kotlin {
+            jvmToolchain(21)
+        }
+    }
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
@@ -16,6 +20,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.datetime)
+            implementation(libs.kotlinx.serialization.json)
         }
         commonTest.dependencies {}
 
