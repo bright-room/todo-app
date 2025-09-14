@@ -5,6 +5,7 @@ services:
       service: "postgres"
       file: "./docker/postgres.yaml"
     volumes:
+    - "./docker/postgres/init:/docker-entrypoint-initdb.d"
     - "db-data:/var/lib/postgresql/data"
 volumes:
   db-data: null
