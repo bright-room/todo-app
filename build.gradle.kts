@@ -16,7 +16,7 @@ spotless {
     }
 
     yaml {
-        jackson()
+        prettier()
         target("**/*.yaml", "**/*.yml")
     }
 }

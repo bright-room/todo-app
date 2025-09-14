@@ -5,25 +5,28 @@ services:
       service: "postgres"
       file: "./docker/postgres.yaml"
     volumes:
-    - "./docker/postgres/init:/docker-entrypoint-initdb.d"
-    - "db-data:/var/lib/postgresql/data"
+      - "./docker/postgres/init:/docker-entrypoint-initdb.d"
+      - "db-data:/var/lib/postgresql/data"
+
   migrate_production:
     extends:
       service: "migrate_production"
       file: "./docker/flyway.yaml"
     volumes:
-    - "./backend/infrastructure/migration/executor/src/main/resources/migration:/flyway/sql"
+      - "./backend/infrastructure/migration/executor/src/main/resources/migration:/flyway/sql"
     depends_on:
       postgres:
         condition: "service_healthy"
+
   migrate_test:
     extends:
       service: "migrate_test"
       file: "./docker/flyway.yaml"
     volumes:
-    - "./backend/infrastructure/migration/executor/src/main/resources/migration:/flyway/sql"
+      - "./backend/infrastructure/migration/executor/src/main/resources/migration:/flyway/sql"
     depends_on:
       postgres:
         condition: "service_healthy"
+
 volumes:
   db-data: null

@@ -1,19 +1,22 @@
 ---
-x-flyway-template:
+x-flyway-template: &flyway-template
   image: "flyway/flyway:latest"
   command: "migrate"
-x-flyway-environment-template:
+
+x-flyway-environment-template: &flyway-environment-template
   FLYWAY_USER: "${DATASOURCE_TODO_ADMIN_USERNAME}"
   FLYWAY_PASSWORD: "${DATASOURCE_TODO_ADMIN_PASSWORD}"
   FLYWAY_DRIVER: "org.postgresql.Driver"
+
 services:
   migrate_production:
-    <<: "flyway-template"
+    <<: *flyway-template
     environment:
-      <<: "flyway-environment-template"
+      <<: *flyway-environment-template
       FLYWAY_URL: "jdbc:postgresql://${DATASOURCE_TODO_HOST}:5432/${DATASOURCE_TODO_DBNAME}"
+
   migrate_test:
-    <<: "flyway-template"
+    <<: *flyway-template
     environment:
-      <<: "flyway-environment-template"
+      <<: *flyway-environment-template
       FLYWAY_URL: "jdbc:postgresql://${DATASOURCE_TODO_HOST}:5432/${DATASOURCE_TODO_TEST_DBNAME}"
