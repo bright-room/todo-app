@@ -16,10 +16,6 @@ jobs:
       run: "docker compose up -d"
     - name: "Restore gradle caches"
       uses: "./.github/actions/gradle-cache"
-    - name: "Execute migrate"
-      uses: "./.github/actions/gradle-action"
-      with:
-        command: ":backend:infrastructure:migration:executor:bootRun"
     - name: "Generate migration script"
       uses: "./.github/actions/gradle-action"
       with:
