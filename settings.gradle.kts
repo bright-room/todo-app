@@ -30,7 +30,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("ktorLib") {
-            from("io.ktor:ktor-version-catalog:3.2.3")
+            from("io.ktor:ktor-version-catalog:3.3.0")
         }
     }
 }
