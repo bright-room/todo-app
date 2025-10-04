@@ -29,7 +29,7 @@ spring-dependency-management = { id = "io.spring.dependency-management", version
 #############################################
 # linter
 #############################################
-spotless = { id = "com.diffplug.spotless", version = { strictly = "7.2.1" } }
+spotless = { id = "com.diffplug.spotless", version = { strictly = "8.0.0" } }
 
 [libraries]
 #############################################
