@@ -109,5 +109,5 @@ password4j = { module = "com.password4j:password4j", version = { strictly = "1.8
 #############################################
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin_version" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version = { strictly = "5.13.4" } }
-mockk = { module = "io.mockk:mockk", version = { strictly = "1.14.5" } }
+mockk = { module = "io.mockk:mockk", version = { strictly = "1.14.6" } }
 h2 = { module = "com.h2database:h2", version = "2.4.240" }
