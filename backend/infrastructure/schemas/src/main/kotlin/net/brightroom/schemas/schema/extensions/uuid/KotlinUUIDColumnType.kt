@@ -18,12 +18,12 @@ internal class KotlinUUIDColumnType : ColumnType<Uuid>() {
     override fun sqlType(): String = currentDialect.dataTypeProvider.uuidType()
 
     override fun valueFromDB(value: Any): Uuid =
-        when {
-            value is Uuid -> value
-            value is UUID -> value.toKotlinUuid()
-            value is ByteArray -> Uuid.fromByteArray(value)
-            value is String && value.matches(uuidRegexp) -> Uuid.parse(value)
-            value is String -> Uuid.fromByteArray(value.toByteArray())
+        when (value) {
+            is Uuid -> value
+            is UUID -> value.toKotlinUuid()
+            is ByteArray -> Uuid.fromByteArray(value)
+            is String if value.matches(uuidRegexp) -> Uuid.parse(value)
+            is String -> Uuid.fromByteArray(value.toByteArray())
             else -> error("Unexpected value of type Uuid: $value of ${value::class.qualifiedName}")
         }
 

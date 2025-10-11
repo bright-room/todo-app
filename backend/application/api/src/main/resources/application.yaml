@@ -1,23 +1,22 @@
 ---
 ktor:
-  development: true
+  environment: "$KTOR_ENV:LOCAL"
+  deployment:
+    port: "$PORT:8080"
   application:
     modules:
-      - "net.brightroom.todo._configuration.logging.LoggingConfiguretionKt.configure"
-      - "net.brightroom.todo._configuration.external.exposed.ExposedConfigurationKt.configure"
-      - "net.brightroom.todo._configuration.di.DependenciesConfigurationKt.configure"
-      - "net.brightroom.todo._configuration.ApiConfigurationKt.configure"
-  deployment:
-    port: 8080
-
-external:
+      - "net.brightroom.todo._configuration.logging.LoggingConfiguretionKt.loggingConfigure"
+      - "net.brightroom.todo._configuration.external.exposed.ExposedConfigurationKt.exposedConfigure"
+      - "net.brightroom.todo._configuration.di.DependenciesConfigurationKt.dependenciesConfigure"
+      - "net.brightroom.todo._configuration.routing.RoutingConfigurationKt.routingConfigure"
+      - "net.brightroom.todo._configuration.apispec.OpenApiConfigurationKt.openApiConfigure"
   datasource:
-    host: "localhost"
-    port: 15432
-    database: "todo"
-    username: "brapl"
-    password: "brapl"
-    schema: "todo_app"
+    host: "$DATASOURCE_HOST:127.0.0.1"
+    port: "$DATASOURCE_PORT:15432"
+    database: "$DATASOURCE_DBNAME:todo"
+    username: "$DATASOURCE_USERNAME:brapl"
+    password: "$DATASOURCE_PASSWORD:brapl"
+    schema: "$DATASOURCE_SHEMA:public"
     minimumIdle: 10
     maximumPoolSize: 100
     connectionValidateQuery: "SELECT 1"

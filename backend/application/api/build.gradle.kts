@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.ktor)
+    alias(ktorLib.plugins.ktor)
 }
 
 group = "net.brightroom"
@@ -14,6 +14,7 @@ dependencies {
 
     implementation(libs.kotlinx.datetime)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.coroutines)
 
     implementation(ktorLib.serialization.kotlinx.json)
 
@@ -45,18 +46,45 @@ dependencies {
     implementation(libs.r2dbc.postgresql)
     implementation(libs.r2dbc.pool)
 
+    implementation(libs.yavi)
+
     implementation(libs.logback)
 
     testImplementation(libs.kotlin.test.junit5)
+    testImplementation(libs.mockk)
     testImplementation(ktorLib.server.testHost)
+    testImplementation(ktorLib.client.contentNegotiation)
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
+kotlin {
+    jvmToolchain(21)
 }
 
 application {
     mainClass.set("net.brightroom.todo.ApplicationKt")
+}
+
+tasks {
+    test {
+        useJUnitPlatform {
+            excludeTags("integration")
+        }
+    }
+
+    val integrationTest by registering(Test::class) {
+        group = "verification"
+
+        testClassesDirs = sourceSets["test"].output.classesDirs
+        classpath = sourceSets["test"].runtimeClasspath
+
+        useJUnitPlatform {
+            includeTags("integration")
+        }
+
+        shouldRunAfter(test)
+    }
+
+    check {
+        dependsOn(integrationTest)
+    }
 }

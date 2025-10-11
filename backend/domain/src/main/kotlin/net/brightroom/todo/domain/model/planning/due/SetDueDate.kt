@@ -1,13 +1,11 @@
 package net.brightroom.todo.domain.model.planning.due
 
 import kotlinx.datetime.LocalDate
-import kotlinx.serialization.Serializable
 
 /**
  * 設定済みの期限日
  */
 @JvmInline
-@Serializable
 value class SetDueDate(
     private val value: LocalDate,
 ) : DueDate {
