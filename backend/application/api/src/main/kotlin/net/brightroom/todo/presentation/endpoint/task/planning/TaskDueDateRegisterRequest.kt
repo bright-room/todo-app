@@ -5,7 +5,4 @@ import net.brightroom.todo.domain.model.identity.Id
 import net.brightroom.todo.domain.model.planning.due.DueDate
 
 @Serializable
-data class TaskDueDateRegisterRequest(
-    val id: Id,
-    val dueDate: DueDate,
-)
+data class TaskDueDateRegisterRequest(val id: Id, val dueDate: DueDate)

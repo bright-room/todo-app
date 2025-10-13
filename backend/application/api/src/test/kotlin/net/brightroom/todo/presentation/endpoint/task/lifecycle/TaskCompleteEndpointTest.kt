@@ -29,9 +29,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @Serializable
-private data class TaskCompleteDummyRequest(
-    val id: String? = null,
-)
+private data class TaskCompleteDummyRequest(val id: String? = null)
 
 @DisplayName("未完了のタスクを完了済みに遷移させるE2Eテスト")
 class TaskCompleteEndpointTest {

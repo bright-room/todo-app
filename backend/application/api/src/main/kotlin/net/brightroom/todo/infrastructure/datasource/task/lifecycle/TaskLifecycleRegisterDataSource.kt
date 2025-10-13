@@ -17,9 +17,7 @@ import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.insert
 import kotlin.uuid.ExperimentalUuidApi
 
-class TaskLifecycleRegisterDataSource(
-    private val db: R2dbcDatabase,
-) : TaskLifecycleRegisterRepository {
+class TaskLifecycleRegisterDataSource(private val db: R2dbcDatabase) : TaskLifecycleRegisterRepository {
     override suspend fun complete(id: Id): Unit =
         transaction(db) {
             val createdTime = CreatedTime.now()

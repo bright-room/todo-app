@@ -14,9 +14,7 @@ import org.springframework.context.annotation.Configuration
     value = [ExposedAutoConfiguration::class],
     exclude = [DataSourceTransactionManagerAutoConfiguration::class],
 )
-class MigrateGeneratorConfiguration(
-    private val migrationGeneratorProperties: MigrationGeneratorProperties,
-) {
+class MigrateGeneratorConfiguration(private val migrationGeneratorProperties: MigrationGeneratorProperties) {
     @Bean
     fun outputDirectory(): OutputDirectory {
         val directory = migrationGeneratorProperties.outputDirectory

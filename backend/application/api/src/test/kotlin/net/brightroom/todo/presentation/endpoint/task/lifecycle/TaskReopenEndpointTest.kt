@@ -29,9 +29,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @Serializable
-private data class TaskReopenDummyRequest(
-    val id: String? = null,
-)
+private data class TaskReopenDummyRequest(val id: String? = null)
 
 @DisplayName("未完了のタスクを再オープンに遷移させるE2Eテスト")
 class TaskReopenEndpointTest {

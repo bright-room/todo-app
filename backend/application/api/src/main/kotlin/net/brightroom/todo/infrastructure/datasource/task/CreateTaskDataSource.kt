@@ -11,9 +11,7 @@ import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.insertAndGetId
 import kotlin.uuid.ExperimentalUuidApi
 
-class CreateTaskDataSource(
-    private val db: R2dbcDatabase,
-) : CreateTaskRepository {
+class CreateTaskDataSource(private val db: R2dbcDatabase) : CreateTaskRepository {
     override suspend fun create(): Id =
         transaction(db) {
             val createdTime = CreatedTime.now()

@@ -8,7 +8,4 @@ import net.brightroom.todo.domain.model.planning.due.DueDateFactory
  * 計画
  */
 @Serializable
-data class Planning(
-    val dueDate: DueDate = DueDateFactory.create(null),
-    val priority: Priority = Priority.Medium,
-)
+data class Planning(val dueDate: DueDate = DueDateFactory.create(null), val priority: Priority = Priority.Medium)

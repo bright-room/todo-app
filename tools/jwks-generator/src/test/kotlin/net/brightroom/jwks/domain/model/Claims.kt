@@ -1,9 +1,7 @@
 package net.brightroom.jwks.domain.model
 
 @JvmInline
-value class Claims(
-    private val value: Map<String, String>,
-) {
+value class Claims(private val value: Map<String, String>) {
     operator fun invoke() = value
 
     override fun toString() = value.toString()

@@ -5,7 +5,4 @@ import net.brightroom.todo.domain.model.identity.Id
 import net.brightroom.todo.domain.model.planning.Planning
 
 @Serializable
-data class TaskPlanningRegisterRequest(
-    val id: Id,
-    val planning: Planning = Planning(),
-)
+data class TaskPlanningRegisterRequest(val id: Id, val planning: Planning = Planning())
