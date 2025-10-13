@@ -43,6 +43,7 @@ rootProject.name = "todo-app"
 
 include(":shared")
 
+include(":domain")
 include(":backend:domain")
 
 include(":backend:infrastructure:schemas")
