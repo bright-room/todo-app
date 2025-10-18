@@ -114,9 +114,7 @@ class TestingScenario(
         }
     }
 
-    class Builder(
-        private val name: String,
-    ) {
+    class Builder(private val name: String) {
         private var given: Given = Given()
         private var whenDo: WhenDo = WhenDo()
         private var then: Then = Then()
@@ -131,10 +129,7 @@ class TestingScenario(
     }
 }
 
-class Given(
-    var setup: suspend Application.() -> Unit = {},
-    var tearDown: suspend Application.() -> Unit = {},
-) {
+class Given(var setup: suspend Application.() -> Unit = {}, var tearDown: suspend Application.() -> Unit = {}) {
     fun setup(block: suspend Application.() -> Unit) {
         setup = block
     }
@@ -168,9 +163,7 @@ class WhenDo(
     }
 }
 
-class Then(
-    var assertion: suspend () -> Unit = {},
-) {
+class Then(var assertion: suspend () -> Unit = {}) {
     lateinit var response: HttpResponse
 }
 

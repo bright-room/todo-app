@@ -5,9 +5,7 @@ import org.jetbrains.exposed.v1.core.Table
 /**
  * マイグレーションテーブル一覧
  */
-data class MigrationTables(
-    val name: List<Table>,
-) {
+data class MigrationTables(val name: List<Table>) {
     fun toArray() = name.toTypedArray()
 
     override fun toString() = name.joinToString(",") { it.tableName }

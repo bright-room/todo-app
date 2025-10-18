@@ -6,9 +6,7 @@ import net.brightroom.migration.detector.domain.model.clazz.ScanClasses
 import org.springframework.stereotype.Service
 
 @Service
-internal class MigrationTargetDetectService(
-    private val migrationTargetDetectRepositories: List<MigrationTargetDetectRepository>,
-) {
+internal class MigrationTargetDetectService(private val migrationTargetDetectRepositories: List<MigrationTargetDetectRepository>) {
     fun listAll(scanBasePackage: ScanBasePackage): ScanClasses =
         migrationTargetDetectRepositories
             .map { it.listAll(scanBasePackage) }

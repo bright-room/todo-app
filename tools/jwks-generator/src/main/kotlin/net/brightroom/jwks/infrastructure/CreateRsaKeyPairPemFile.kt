@@ -9,9 +9,7 @@ import org.springframework.stereotype.Repository
 import java.nio.file.Path
 
 @Repository
-class CreateRsaKeyPairPemFile(
-    private val saveDir: Path,
-) : CreateKeyPairRepository {
+class CreateRsaKeyPairPemFile(private val saveDir: Path) : CreateKeyPairRepository {
     private val log = LoggerFactory.getLogger(CreateRsaKeyPairPemFile::class.java)
 
     override fun create(): KeyPair {

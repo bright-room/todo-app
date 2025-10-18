@@ -4,9 +4,7 @@ import kotlinx.datetime.LocalDateTime
 import net.brightroom._extensions.kotlinx.datetime.now
 
 @JvmInline
-value class ReopenTime(
-    private val value: LocalDateTime,
-) {
+value class ReopenTime(private val value: LocalDateTime) {
     operator fun invoke(): LocalDateTime = value
 
     override fun toString(): String = value.toString()

@@ -29,16 +29,10 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @Serializable
-private data class DummyContent(
-    val title: String? = null,
-    val description: String? = null,
-)
+private data class DummyContent(val title: String? = null, val description: String? = null)
 
 @Serializable
-private data class TaskContentModifyDummyRequest(
-    val id: String? = null,
-    val content: DummyContent? = null,
-)
+private data class TaskContentModifyDummyRequest(val id: String? = null, val content: DummyContent? = null)
 
 @DisplayName("タスクコンテンの編集のE2Eテスト")
 class TaskContentModifyEndpointTest {

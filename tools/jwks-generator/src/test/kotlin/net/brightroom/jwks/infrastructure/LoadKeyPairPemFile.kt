@@ -8,9 +8,7 @@ import org.springframework.stereotype.Repository
 import java.nio.file.Path
 
 @Repository
-class LoadKeyPairPemFile(
-    private val saveDir: Path,
-) : KeyPairRepository {
+class LoadKeyPairPemFile(private val saveDir: Path) : KeyPairRepository {
     override fun load(): KeyPair {
         val privateKey = loadPrivateKeyFile()
         val publicKey = loadPublicKeyFile()

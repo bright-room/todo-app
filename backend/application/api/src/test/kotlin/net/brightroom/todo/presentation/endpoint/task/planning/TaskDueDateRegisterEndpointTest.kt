@@ -29,10 +29,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @Serializable
-private data class TaskDueDateRegisterDummyRequest(
-    val id: String? = null,
-    val dueDate: String? = null,
-)
+private data class TaskDueDateRegisterDummyRequest(val id: String? = null, val dueDate: String? = null)
 
 @DisplayName("タスク期限日登録のE2Eテスト")
 class TaskDueDateRegisterEndpointTest {

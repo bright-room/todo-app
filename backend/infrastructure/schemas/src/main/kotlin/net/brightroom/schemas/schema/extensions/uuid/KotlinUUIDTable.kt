@@ -9,10 +9,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @OptIn(ExperimentalUuidApi::class)
-open class KotlinUUIDTable(
-    name: String = "",
-    columnName: String = "id",
-) : IdTable<Uuid>(name) {
+open class KotlinUUIDTable(name: String = "", columnName: String = "id") : IdTable<Uuid>(name) {
     final override val id: Column<EntityID<Uuid>> = kotlinUUID(columnName).autoGenerate().entityId()
     final override val primaryKey = PrimaryKey(id)
 }

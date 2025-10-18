@@ -4,8 +4,6 @@ import net.brightroom.migration.executor.application.repository.MigrationExecute
 import org.springframework.stereotype.Service
 
 @Service
-class MigrationExecuteService(
-    private val migrationExecuteRepository: MigrationExecuteRepository,
-) {
+class MigrationExecuteService(private val migrationExecuteRepository: MigrationExecuteRepository) {
     fun execute() = migrationExecuteRepository.execute()
 }

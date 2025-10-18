@@ -16,9 +16,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @Repository
-class CreateJwksFile(
-    private val saveDir: Path,
-) : CreateJwksRepository {
+class CreateJwksFile(private val saveDir: Path) : CreateJwksRepository {
     private val log = LoggerFactory.getLogger(CreateJwksFile::class.java)
 
     private val json =

@@ -29,10 +29,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @Serializable
-private data class TaskPriorityRegisterDummyRequest(
-    val id: String? = null,
-    val priority: String? = null,
-)
+private data class TaskPriorityRegisterDummyRequest(val id: String? = null, val priority: String? = null)
 
 @DisplayName("タスク優先度登録のE2Eテスト")
 class TaskPriorityRegisterEndpointTest {

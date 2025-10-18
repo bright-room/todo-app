@@ -8,9 +8,7 @@ import net.brightroom._extensions.kotlinx.datetime.now
 /**
  * バージョン
  */
-class Version constructor(
-    private val value: LocalDateTime,
-) {
+class Version constructor(private val value: LocalDateTime) {
     constructor() : this(LocalDateTime.now())
 
     fun asText(): String {

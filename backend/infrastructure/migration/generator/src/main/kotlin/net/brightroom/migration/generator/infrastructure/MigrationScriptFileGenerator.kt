@@ -11,10 +11,8 @@ import org.springframework.transaction.annotation.Transactional
 import java.io.File
 
 @Repository
-class MigrationScriptFileGenerator(
-    private val outputDirectory: OutputDirectory,
-    private val scriptName: ScriptName,
-) : CreateMigrationScriptRepository {
+class MigrationScriptFileGenerator(private val outputDirectory: OutputDirectory, private val scriptName: ScriptName) :
+    CreateMigrationScriptRepository {
     @OptIn(ExperimentalDatabaseMigrationApi::class)
     @Transactional(readOnly = true)
     override fun create(tables: MigrationTables) {

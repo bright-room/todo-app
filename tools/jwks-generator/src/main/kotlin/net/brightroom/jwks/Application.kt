@@ -9,10 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class Application(
-    private val createKeyPairService: CreateKeyPairService,
-    private val createJwksService: CreateJwksService,
-) : ApplicationRunner {
+class Application(private val createKeyPairService: CreateKeyPairService, private val createJwksService: CreateJwksService) :
+    ApplicationRunner {
     private val log = LoggerFactory.getLogger(Application::class.java)
 
     override fun run(args: ApplicationArguments?) {

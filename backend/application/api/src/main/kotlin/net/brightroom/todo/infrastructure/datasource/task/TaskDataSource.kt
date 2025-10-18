@@ -39,9 +39,7 @@ import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.select
 import kotlin.uuid.ExperimentalUuidApi
 
-class TaskDataSource(
-    private val db: R2dbcDatabase,
-) : TaskRepository {
+class TaskDataSource(private val db: R2dbcDatabase) : TaskRepository {
     override suspend fun getBy(id: Id): Task =
         transaction(db, readOnly = true) {
             val resultRow =

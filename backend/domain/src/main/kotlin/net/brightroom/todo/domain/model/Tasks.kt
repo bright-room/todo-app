@@ -7,6 +7,4 @@ import kotlinx.serialization.Serializable
  */
 @JvmInline
 @Serializable
-value class Tasks(
-    val list: List<Task>,
-)
+value class Tasks(val list: List<Task>)

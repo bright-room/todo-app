@@ -13,9 +13,7 @@ import javax.sql.DataSource
     value = [ExposedAutoConfiguration::class],
     exclude = [DataSourceTransactionManagerAutoConfiguration::class],
 )
-class MigrateExecutorConfiguration(
-    private val migrationExecutorProperties: MigrationExecutorProperties,
-) {
+class MigrateExecutorConfiguration(private val migrationExecutorProperties: MigrationExecutorProperties) {
     @Bean
     fun flyway(dataSource: DataSource): Flyway =
         Flyway

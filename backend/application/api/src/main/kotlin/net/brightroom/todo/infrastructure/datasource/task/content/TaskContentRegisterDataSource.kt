@@ -12,9 +12,7 @@ import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.insert
 import kotlin.uuid.ExperimentalUuidApi
 
-class TaskContentRegisterDataSource(
-    private val db: R2dbcDatabase,
-) : TaskContentRegisterRepository {
+class TaskContentRegisterDataSource(private val db: R2dbcDatabase) : TaskContentRegisterRepository {
     override suspend fun register(
         content: Content,
         id: Id,

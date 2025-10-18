@@ -7,9 +7,7 @@ import net.brightroom._extensions.kotlinx.datetime.now
  * 作成日時
  */
 @JvmInline
-value class CreatedTime(
-    private val value: LocalDateTime,
-) {
+value class CreatedTime(private val value: LocalDateTime) {
     operator fun invoke(): LocalDateTime = value
 
     override fun toString(): String = value.toString()

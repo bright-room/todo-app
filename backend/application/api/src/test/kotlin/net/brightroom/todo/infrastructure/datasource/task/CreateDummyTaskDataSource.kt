@@ -20,9 +20,7 @@ import org.jetbrains.exposed.v1.r2dbc.insert
 import kotlin.uuid.ExperimentalUuidApi
 
 @OptIn(ExperimentalUuidApi::class)
-class CreateDummyTaskDataSource(
-    private val db: R2dbcDatabase,
-) {
+class CreateDummyTaskDataSource(private val db: R2dbcDatabase) {
     suspend fun create(vararg tasks: Task) =
         transaction(db) {
             tasks.forEach { task ->

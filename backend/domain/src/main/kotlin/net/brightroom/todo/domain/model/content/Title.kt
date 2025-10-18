@@ -8,9 +8,7 @@ import kotlinx.serialization.Serializable
  */
 @JvmInline
 @Serializable
-value class Title(
-    private val value: String,
-) {
+value class Title(private val value: String) {
     operator fun invoke(): String = value
 
     override fun toString(): String = value

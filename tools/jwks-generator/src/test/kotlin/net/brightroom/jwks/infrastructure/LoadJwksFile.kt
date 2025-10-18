@@ -8,9 +8,7 @@ import org.springframework.stereotype.Repository
 import java.nio.file.Path
 
 @Repository
-class LoadJwksFile(
-    private val saveDir: Path,
-) : JwksRepository {
+class LoadJwksFile(private val saveDir: Path) : JwksRepository {
     private val jsonMapper = Json { prettyPrint = true }
 
     override fun load(): Jwks {

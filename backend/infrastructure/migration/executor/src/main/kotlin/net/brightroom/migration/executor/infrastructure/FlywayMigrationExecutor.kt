@@ -5,9 +5,7 @@ import org.flywaydb.core.Flyway
 import org.springframework.stereotype.Repository
 
 @Repository
-class FlywayMigrationExecutor(
-    private val flyway: Flyway,
-) : MigrationExecuteRepository {
+class FlywayMigrationExecutor(private val flyway: Flyway) : MigrationExecuteRepository {
     override fun execute() {
         flyway.migrate()
     }

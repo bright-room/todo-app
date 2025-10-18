@@ -18,10 +18,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 @Serializable
-private data class CreateTaskDummyRequest(
-    val title: String? = null,
-    val description: String? = null,
-)
+private data class CreateTaskDummyRequest(val title: String? = null, val description: String? = null)
 
 @DisplayName("タスク作成のE2Eテスト")
 class CreateTaskEndpointTest {

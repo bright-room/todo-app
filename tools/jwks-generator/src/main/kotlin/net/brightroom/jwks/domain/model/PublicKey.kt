@@ -8,9 +8,7 @@ import kotlin.jvm.JvmInline
 
 /** 公開鍵 */
 @JvmInline
-value class PublicKey(
-    private val value: RSAPublicKey,
-) {
+value class PublicKey(private val value: RSAPublicKey) {
     fun asPEM(): String {
         val encoded = value.encoded
         val base64 = Base64.getEncoder().encodeToString(encoded)

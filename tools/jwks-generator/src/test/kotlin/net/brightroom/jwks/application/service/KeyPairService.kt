@@ -5,8 +5,6 @@ import net.brightroom.jwks.domain.model.KeyPair
 import org.springframework.stereotype.Service
 
 @Service
-class KeyPairService(
-    private val keyPairRepository: KeyPairRepository,
-) {
+class KeyPairService(private val keyPairRepository: KeyPairRepository) {
     fun load(): KeyPair = keyPairRepository.load()
 }

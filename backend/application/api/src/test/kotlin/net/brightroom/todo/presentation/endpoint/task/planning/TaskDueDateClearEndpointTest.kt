@@ -31,9 +31,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @Serializable
-private data class TaskDueDateClearDummyRequest(
-    val id: String? = null,
-)
+private data class TaskDueDateClearDummyRequest(val id: String? = null)
 
 @DisplayName("タスク期限日削除のE2Eテスト")
 class TaskDueDateClearEndpointTest {
