@@ -5,8 +5,6 @@ import net.brightroom.migration.generator.application.repository.CreateMigration
 import org.springframework.stereotype.Service
 
 @Service
-class CreateMigrationScriptService(
-    private val createMigrationScriptRepository: CreateMigrationScriptRepository,
-) {
+class CreateMigrationScriptService(private val createMigrationScriptRepository: CreateMigrationScriptRepository) {
     fun create(tables: MigrationTables) = createMigrationScriptRepository.create(tables)
 }

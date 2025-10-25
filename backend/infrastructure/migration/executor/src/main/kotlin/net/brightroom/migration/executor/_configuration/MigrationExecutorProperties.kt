@@ -6,6 +6,4 @@ import org.springframework.boot.context.properties.bind.ConstructorBinding
 @ConfigurationProperties("migration.execute")
 data class MigrationExecutorProperties
     @ConstructorBinding
-    constructor(
-        val scriptLocation: String,
-    )
+    constructor(val scriptLocation: String)

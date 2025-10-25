@@ -12,9 +12,7 @@ import kotlin.uuid.Uuid
  */
 @JvmInline
 @Serializable
-value class Id(
-    private val value: Uuid,
-) {
+value class Id(private val value: Uuid) {
     operator fun invoke(): Uuid = value
 
     override fun toString(): String = value.toString()

@@ -12,9 +12,7 @@ import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.insert
 import kotlin.uuid.ExperimentalUuidApi
 
-class TaskPriorityRegisterDataSource(
-    private val db: R2dbcDatabase,
-) : TaskPriorityRegisterRepository {
+class TaskPriorityRegisterDataSource(private val db: R2dbcDatabase) : TaskPriorityRegisterRepository {
     override suspend fun register(
         priority: Priority,
         id: Id,

@@ -3,9 +3,7 @@ package net.brightroom.migration.detector.domain.model.clazz
 /**
  * スキャンを行うベースパッケージ
  */
-class ScanBasePackage(
-    private val value: String,
-) {
+class ScanBasePackage(private val value: String) {
     init {
         require(value.isNotBlank()) { "value must not be blank" }
     }

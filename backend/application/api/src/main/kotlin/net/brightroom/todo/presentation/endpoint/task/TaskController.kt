@@ -30,9 +30,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @Resource("")
-private data class TaskRequest(
-    val id: Id,
-)
+private data class TaskRequest(val id: Id)
 
 @Resource("list")
 private class TaskListRequest

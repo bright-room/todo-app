@@ -8,10 +8,7 @@ import java.security.interfaces.RSAPublicKey
 /**
  * キーペア
  */
-data class KeyPair constructor(
-    val publicKey: PublicKey,
-    val privateKey: PrivateKey,
-) {
+data class KeyPair constructor(val publicKey: PublicKey, val privateKey: PrivateKey) {
     companion object {
         fun create(): KeyPair {
             val keyPairGenerator = KeyPairGenerator.getInstance("RSA")

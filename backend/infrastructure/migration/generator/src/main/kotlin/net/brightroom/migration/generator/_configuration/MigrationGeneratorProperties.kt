@@ -6,7 +6,4 @@ import org.springframework.boot.context.properties.bind.ConstructorBinding
 @ConfigurationProperties("migration.generate")
 data class MigrationGeneratorProperties
     @ConstructorBinding
-    constructor(
-        val outputDirectory: String,
-        val filenameSuffix: String,
-    )
+    constructor(val outputDirectory: String, val filenameSuffix: String)

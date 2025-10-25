@@ -7,9 +7,7 @@ import net.brightroom.jwks.domain.model.KeyPair
 import org.springframework.stereotype.Service
 
 @Service
-class CreateJwtService(
-    private val createJwtRepository: CreateJwtRepository,
-) {
+class CreateJwtService(private val createJwtRepository: CreateJwtRepository) {
     fun create(
         keyPair: KeyPair,
         jwks: Jwks,
