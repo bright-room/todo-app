@@ -3,9 +3,9 @@ name: "Check migration scripts"
 
 "on":
   pull_request:
-#    paths:
-#      - "backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/**"
-#      - "backend/infrastructure/migration/executor/src/main/resources/migration/**"
+    paths:
+      - "backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/**"
+      - "backend/infrastructure/migration/executor/src/main/resources/migration/**"
 
 jobs:
   check-migration:
