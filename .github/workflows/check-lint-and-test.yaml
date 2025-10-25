@@ -3,7 +3,7 @@ name: "Check lint and test"
 "on":
   pull_request: null
 jobs:
-  check-lint:
+  check:
     runs-on: "ubuntu-latest"
     timeout-minutes: 10
 
