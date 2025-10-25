@@ -3,9 +3,9 @@ name: "Check migration scripts"
 
 "on":
   pull_request:
-    paths:
-      - "backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/**"
-      - "backend/infrastructure/migration/executor/src/main/resources/migration/**"
+#    paths:
+#      - "backend/infrastructure/schemas/src/main/kotlin/net/brightroom/schemas/schema/**"
+#      - "backend/infrastructure/migration/executor/src/main/resources/migration/**"
 
 jobs:
   check-migration:
@@ -16,8 +16,17 @@ jobs:
       - name: "Checkout repository"
         uses: "actions/checkout@v5"
 
+      - name: "Build postgres image with cache"
+        uses: "./.github/actions/docker-image-cache"
+        with:
+          context: "./docker/postgres"
+          file: "./docker/postgres/Dockerfile"
+          tags: "local/postgres:ci"
+          cache-scope: "todo-postgres-ci-${{ runner.os }}"
+
       - name: "Docker Compose up"
-        run: "docker compose up -d"
+        run: |
+          DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker compose up -d
 
       - name: "Restore gradle caches"
         uses: "./.github/actions/gradle-cache"
@@ -28,7 +37,8 @@ jobs:
           command: ":backend:infrastructure:migration:generator:bootRun"
 
       - name: "Docker Compose down"
-        run: "docker compose down -v"
+        run: |
+          docker compose down -v
 
       - name: "Fail if migration scripts are missing in PR"
         run: |

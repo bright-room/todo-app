@@ -1,4 +1,4 @@
-FROM postgres:latest
+FROM postgres:18
 
 ARG DB_LANG=ja_JP
 
