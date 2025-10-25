@@ -1,6 +1,6 @@
 ---
 x-flyway-template: &flyway-template
-  image: "flyway/flyway:latest"
+  image: "flyway/flyway:11.15-alpine"
   command: "migrate"
 
 x-flyway-environment-template: &flyway-environment-template

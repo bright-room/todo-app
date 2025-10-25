@@ -1,0 +1,37 @@
+name: "Docker Image Cache"
+description: "Build a Docker image with BuildKit and cache layers in GitHub Actions cache (GHA) for reuse across workflows. Loads the image into the local Docker daemon."
+
+inputs:
+  context:
+    description: "Build context directory"
+    required: true
+  file:
+    description: "Path to the Dockerfile"
+    required: true
+  tags:
+    description: "Comma-separated tags for the built image"
+    required: true
+  cache-scope:
+    description: "Cache scope key for GHA cache reuse"
+    required: false
+    default: "default-docker-build-cache"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Setup Docker Buildx"
+      uses: "docker/setup-buildx-action@v3"
+      with:
+        driver-opts: "image=moby/buildkit:latest"
+        install: true
+
+    - name: "Build image with cache and load to daemon"
+      uses: "docker/build-push-action@v6"
+      with:
+        context: "${{ inputs.context }}"
+        file: "${{ inputs.file }}"
+        tags: "${{ inputs.tags }}"
+        load: true
+        push: false
+        cache-from: "type=gha,scope=${{ inputs.cache-scope }}"
+        cache-to: "type=gha,scope=${{ inputs.cache-scope }},mode=max"

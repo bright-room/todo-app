@@ -1,6 +1,7 @@
 ---
 services:
   postgres:
+    image: "local/postgres:ci"
     build:
       context: "./postgres"
     hostname: "${DATASOURCE_TODO_HOST}"
