@@ -15,9 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest
 @DisplayName("マイグレーション検出テスト")
 class MigrationDetectorTest
     @Autowired
-    constructor(
-        private val migrationDetector: MigrationDetector,
-    ) {
+    constructor(private val migrationDetector: MigrationDetector) {
         @Test
         fun `マイグレーション対象テーブルが正しく検出される`() {
             val actual = migrationDetector.detect()

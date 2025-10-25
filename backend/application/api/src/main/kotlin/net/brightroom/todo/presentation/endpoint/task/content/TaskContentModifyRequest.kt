@@ -10,10 +10,7 @@ import net.brightroom.todo.domain.model.identity.Id
 import net.brightroom.todo.presentation.endpoint.Validatable
 
 @Serializable
-data class TaskContentModifyRequest(
-    val id: Id,
-    val content: Content,
-) : Validatable<TaskContentModifyRequest> {
+data class TaskContentModifyRequest(val id: Id, val content: Content) : Validatable<TaskContentModifyRequest> {
     @Transient
     override val validator: Validator<TaskContentModifyRequest> =
         validator {

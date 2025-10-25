@@ -14,9 +14,7 @@ import org.jetbrains.exposed.v1.r2dbc.insert
 import org.jetbrains.exposed.v1.r2dbc.select
 import kotlin.uuid.ExperimentalUuidApi
 
-class TaskDueDateRegisterDataSource(
-    private val db: R2dbcDatabase,
-) : TaskDueDateRegisterRepository {
+class TaskDueDateRegisterDataSource(private val db: R2dbcDatabase) : TaskDueDateRegisterRepository {
     override suspend fun register(
         dueDate: DueDate,
         id: Id,

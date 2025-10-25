@@ -10,10 +10,7 @@ import net.brightroom.todo.domain.model.content.Title
 import net.brightroom.todo.presentation.endpoint.Validatable
 
 @Serializable
-data class CreateTaskRequest(
-    val title: Title,
-    val description: Description = Description(""),
-) : Validatable<CreateTaskRequest> {
+data class CreateTaskRequest(val title: Title, val description: Description = Description("")) : Validatable<CreateTaskRequest> {
     @Transient
     override val validator: Validator<CreateTaskRequest> =
         validator {
