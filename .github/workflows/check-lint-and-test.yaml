@@ -3,7 +3,7 @@ name: "Check lint and test"
 "on":
   pull_request: null
 jobs:
-  check-lint:
+  check:
     runs-on: "ubuntu-latest"
     timeout-minutes: 10
 
@@ -14,23 +14,7 @@ jobs:
       - name: "Restore gradle caches"
         uses: "./.github/actions/gradle-cache"
 
-      - name: "Check lint with Gradle"
+      - name: "Check with Gradle"
         uses: "./.github/actions/gradle-action"
         with:
-          command: "spotlessCheck"
-
-  check-test:
-    runs-on: "ubuntu-latest"
-    timeout-minutes: 10
-
-    steps:
-      - name: "Checkout repository"
-        uses: "actions/checkout@v5"
-
-      - name: "Restore gradle caches"
-        uses: "./.github/actions/gradle-cache"
-
-      - name: "Check test with Gradle"
-        uses: "./.github/actions/gradle-action"
-        with:
-          command: "test"
+          command: "check -x integrationTest"
