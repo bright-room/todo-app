@@ -70,7 +70,7 @@ exposed-spring-boot-starter = { module = "org.jetbrains.exposed:exposed-spring-b
 # datasource connector libraries
 #############################################
 jdbc-postgresql = { module = "org.postgresql:postgresql", version = { strictly = "42.7.8" } }
-r2dbc-postgresql = { module = "org.postgresql:r2dbc-postgresql", version = { strictly = "1.1.0.RELEASE" } }
+r2dbc-postgresql = { module = "org.postgresql:r2dbc-postgresql", version = { strictly = "1.1.1.RELEASE" } }
 r2dbc-pool = { module = "io.r2dbc:r2dbc-pool", version = { strictly = "1.0.2.RELEASE" } }
 
 #############################################
