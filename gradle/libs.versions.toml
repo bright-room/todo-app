@@ -3,7 +3,7 @@ kotlin_version = { strictly = "2.2.21" }
 ktor_version = { strictly = "3.3.1" }
 exposed_version = { strictly = "1.0.0-beta-5" }
 smiley4_ktor_opendocs_version = { strictly = "5.4.0" }
-smiley4_schema_kenerator_version = { strictly = "2.4.0" }
+smiley4_schema_kenerator_version = { strictly = "2.5.0" }
 flyway_version = { strictly = "11.17.0" }
 
 [plugins]
