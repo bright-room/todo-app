@@ -41,6 +41,7 @@ internal class DirectoryScanningMigrationTargetDetector : MigrationTargetDetectR
                     val subScan = findClassesInDirectory(file, subPackage)
                     classes.addAll(subScan())
                 }
+
                 file.name.endsWith(".class") -> {
                     val className = file.name.substring(0, file.name.length - 6)
                     try {
