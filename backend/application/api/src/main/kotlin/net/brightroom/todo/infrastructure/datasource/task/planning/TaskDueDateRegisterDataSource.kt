@@ -9,6 +9,7 @@ import net.brightroom.todo.application.repository.task.planning.TaskDueDateRegis
 import net.brightroom.todo.domain.model.identity.Id
 import net.brightroom.todo.domain.model.planning.due.DueDate
 import net.brightroom.todo.infrastructure.datasource.CreatedTime
+import org.jetbrains.exposed.v1.core.eq
 import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.insert
 import org.jetbrains.exposed.v1.r2dbc.select

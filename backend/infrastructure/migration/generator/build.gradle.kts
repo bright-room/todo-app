@@ -16,8 +16,9 @@ dependencies {
     implementation(libs.kotlinx.datetime)
 
     implementation(libs.exposed.spring.boot.starter)
-    implementation(libs.exposed.jdbc)
-    implementation(libs.exposed.migration)
+
+    implementation(libs.exposed.migration.core)
+    implementation(libs.exposed.migration.jdbc)
 
     runtimeOnly(libs.jdbc.postgresql)
 
