@@ -8,7 +8,8 @@ plugins {
 kotlin {
     jvm {
         kotlin {
-            jvmToolchain(21)
+            val javaVersion = libs.versions.java.get()
+            jvmToolchain(javaVersion.toInt())
         }
     }
 
