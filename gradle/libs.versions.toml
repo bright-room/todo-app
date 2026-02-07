@@ -82,7 +82,7 @@ flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql
 #############################################
 # logging libraries
 #############################################
-logback = { module = "ch.qos.logback:logback-classic", version = { strictly = "1.5.26" } }
+logback = { module = "ch.qos.logback:logback-classic", version = { strictly = "1.5.27" } }
 
 #############################################
 # auth0 libraries
