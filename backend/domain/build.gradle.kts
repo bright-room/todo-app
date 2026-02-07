@@ -16,7 +16,8 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(21)
+    val javaVersion = libs.versions.java.get()
+    jvmToolchain(javaVersion.toInt())
 }
 
 tasks {
