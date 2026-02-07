@@ -60,10 +60,10 @@ spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-star
 # exposed libraries
 #############################################
 exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed_version" }
-exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed_version" }
 exposed-r2dbc = { module = "org.jetbrains.exposed:exposed-r2dbc", version.ref = "exposed_version" }
 exposed-kotlin-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime", version.ref = "exposed_version" }
-exposed-migration = { module = "org.jetbrains.exposed:exposed-migration", version.ref = "exposed_version" }
+exposed-migration-core = { module = "org.jetbrains.exposed:exposed-migration-core", version.ref = "exposed_version" }
+exposed-migration-jdbc = { module = "org.jetbrains.exposed:exposed-migration-jdbc", version.ref = "exposed_version" }
 exposed-spring-boot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed_version" }
 
 #############################################

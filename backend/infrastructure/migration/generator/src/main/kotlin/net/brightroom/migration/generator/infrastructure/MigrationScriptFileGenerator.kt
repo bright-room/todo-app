@@ -5,7 +5,7 @@ import net.brightroom.migration.generator.application.repository.CreateMigration
 import net.brightroom.migration.generator.domain.model.OutputDirectory
 import net.brightroom.migration.generator.domain.model.ScriptName
 import org.jetbrains.exposed.v1.core.ExperimentalDatabaseMigrationApi
-import org.jetbrains.exposed.v1.migration.MigrationUtils
+import org.jetbrains.exposed.v1.migration.jdbc.MigrationUtils
 import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
 import java.io.File

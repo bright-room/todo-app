@@ -2,7 +2,7 @@ package net.brightroom.migration.executor.infrastructure
 
 import net.brightroom.migration.detector.domain.model.table.MigrationTables
 import net.brightroom.migration.executor.application.repository.MigrationStatementNotificationRepository
-import org.jetbrains.exposed.v1.migration.MigrationUtils
+import org.jetbrains.exposed.v1.migration.jdbc.MigrationUtils
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Repository
 
