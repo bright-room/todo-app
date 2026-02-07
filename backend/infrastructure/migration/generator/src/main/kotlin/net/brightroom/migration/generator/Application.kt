@@ -16,7 +16,7 @@ class Application(
     private val createMigrationScriptService: CreateMigrationScriptService,
 ) : ApplicationRunner {
     @OptIn(ExperimentalDatabaseMigrationApi::class)
-    override fun run(args: ApplicationArguments?) {
+    override fun run(args: ApplicationArguments) {
         val tables = migrationDetector.detect()
         createMigrationScriptService.create(tables)
     }

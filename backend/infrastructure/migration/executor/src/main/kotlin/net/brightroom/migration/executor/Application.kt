@@ -18,7 +18,7 @@ class Application(
     private val migrationNotificationService: MigrationStatementNotificationService,
     private val migrationDetector: MigrationDetector,
 ) : ApplicationRunner {
-    override fun run(args: ApplicationArguments?) {
+    override fun run(args: ApplicationArguments) {
         val tables = migrationDetector.detect()
         migrationNotificationService.notify(tables)
 
