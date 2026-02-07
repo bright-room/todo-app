@@ -1,9 +1,9 @@
 package net.brightroom.migration.executor._configuration
 
 import org.flywaydb.core.Flyway
-import org.jetbrains.exposed.v1.spring.boot.autoconfigure.ExposedAutoConfiguration
+import org.jetbrains.exposed.v1.spring.boot4.autoconfigure.ExposedAutoConfiguration
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration
-import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+import org.springframework.boot.jdbc.autoconfigure.DataSourceTransactionManagerAutoConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import javax.sql.DataSource

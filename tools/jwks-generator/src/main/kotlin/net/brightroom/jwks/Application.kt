@@ -13,7 +13,7 @@ class Application(private val createKeyPairService: CreateKeyPairService, privat
     ApplicationRunner {
     private val log = LoggerFactory.getLogger(Application::class.java)
 
-    override fun run(args: ApplicationArguments?) {
+    override fun run(args: ApplicationArguments) {
         try {
             val keyPair = createKeyPairService.create()
             createJwksService.create(keyPair)

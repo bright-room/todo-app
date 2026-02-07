@@ -3,9 +3,9 @@ package net.brightroom.migration.generator._configuration
 import net.brightroom.migration.generator.domain.model.OutputDirectory
 import net.brightroom.migration.generator.domain.model.ScriptName
 import net.brightroom.migration.generator.domain.model.Version
-import org.jetbrains.exposed.v1.spring.boot.autoconfigure.ExposedAutoConfiguration
+import org.jetbrains.exposed.v1.spring.boot4.autoconfigure.ExposedAutoConfiguration
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration
-import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+import org.springframework.boot.jdbc.autoconfigure.DataSourceTransactionManagerAutoConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
