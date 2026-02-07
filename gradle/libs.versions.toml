@@ -4,7 +4,7 @@ ktor_version = { strictly = "3.3.1" }
 exposed_version = { strictly = "1.0.0-beta-5" }
 smiley4_ktor_opendocs_version = { strictly = "5.4.0" }
 smiley4_schema_kenerator_version = { strictly = "2.6.0" }
-flyway_version = { strictly = "11.20.3" }
+flyway_version = { strictly = "12.0.0" }
 
 [plugins]
 #############################################
